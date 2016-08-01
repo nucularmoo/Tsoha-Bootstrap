@@ -7,7 +7,7 @@ mahdollisesti myös evoluutioille sekä eri pokemonien evoluution vaatimalle jau
 Loppuvaiheessa toivottavaa olisi, että tietokannassa olisi kirjautumismahdollisuus jotta käyttäjät voisivat tietokantaa käyttäen
 tallentaa sekä muokata omia pokemonkokoelmiaan.
 
-Työ toteutetaan laitoksen users-palvelimella. Web-sovelluksen alustajärjestelmässä käytetään koko Javaa tai PHP:ta.
+Työ toteutetaan laitoksen users-palvelimella. Web-sovelluksen alustajärjestelmässä käytetään joko Javaa tai PHP:ta.
 
 ## Käyttötapaukset
 
