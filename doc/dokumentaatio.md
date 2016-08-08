@@ -33,14 +33,14 @@ Työ toteutetaan laitoksen users-palvelimella. Web-sovelluksen alustajärjestelm
 
 ## Tietokannan tietosisältö
 
-### Tietokannan käsitekaavio
+### Tietokannan käsitekaavio:
 
 ![Kasitekaavio](kasitekaavio.png)
 
 ### Tietokohde: Trainer
 Attribuutti | Arvojoukko | Kuvaus
 -------- | ------ | ------
-Nimi | Merkkijono, max 50 merkkiä | Trainerin äyttäjätunnus
+Nimi | Merkkijono, max 50 merkkiä | Trainerin käyttäjätunnus
 Password | Merkkijono, max 50 merkkiä | Trainerin salasana
 
 ### Tietokohde: Type description
@@ -87,6 +87,6 @@ Attribuutti | Arvojoukko | Kuvaus
 Strong type | Kokonaisluku, viite | Vahva tyyppi
 Weak type | Kokonaisluku, viite | Heikko tyyppi
 
-### Tietokannan relaatiotietokantakaavio
+### Tietokannan relaatiotietokantakaavio:
 
 ![Relaatiotietokantakaavio](relaatiotietokantakaavio.png)
