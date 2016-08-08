@@ -2,7 +2,7 @@
 
 Yleisiä linkkejä:
 
-* [Linkki sovellukseeni](https://www.cs.helsinki.fi)
+* [Linkki sovellukseeni](http://ehkjarvi.users.cs.helsinki.fi/tsoha)
 * [Linkki dokumentaatiooni](doc/dokumentaatio.md)
 
 ## Työn aihe

@@ -16,7 +16,7 @@
 
     	public static function index(){
       // make-metodi renderöi app/views-kansiossa sijaitsevia tiedostoja
-		echo 'Tämä on etusivu';
+		View::Make('suunnitelmat/index.html');
    	 }
 
    	 public static function sandbox(){

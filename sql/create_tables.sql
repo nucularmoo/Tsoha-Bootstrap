@@ -12,8 +12,8 @@ CREATE TABLE typedesc(
 CREATE TABLE attack(
 	id SERIAL PRIMARY KEY,
 	name varchar(50) NOT NULL,
-	damage INT NOT NULL,
-	dps INT NOT NULL,
+	damage DECIMAL NOT NULL,
+	dps DECIMAL NOT NULL,
 	typedesc_id INTEGER REFERENCES typedesc(id)
 ); 
 
