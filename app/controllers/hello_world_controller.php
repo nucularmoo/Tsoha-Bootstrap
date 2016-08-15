@@ -1,5 +1,7 @@
 <?php
 
+  require'app/models/mon.php';
+
   class HelloWorldController extends BaseController{
 
 	public static function mon_list(){
@@ -20,7 +22,12 @@
    	 }
 
    	 public static function sandbox(){
-      // Testaa koodiasi täällä
-     		 View::make('helloworld.html');
+      		$pikachu = Mon::find(25);
+		$mons = Mon::all();
+
+		Kint::dump($mons);
+		Kint::dump($pikachu);
+
+     		 //View::make('helloworld.html');
     	}
   }

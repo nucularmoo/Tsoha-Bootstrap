@@ -1,5 +1,13 @@
 <?php
 
+  $routes->get('/mon', function() {
+	MonController::index();
+});
+
+  $routes->get('/mon/:id', function($id) {
+	MonController::show($id);
+});
+
   $routes->get('/mons', function() {
 	HelloWorldController::mon_list();
 });

@@ -1,0 +1,71 @@
+Available help:
+  ABORT                            DELETE
+  ALTER AGGREGATE                  DISCARD
+  ALTER CONVERSION                 DROP AGGREGATE
+  ALTER DATABASE                   DROP CAST
+  ALTER DOMAIN                     DROP CONVERSION
+  ALTER FOREIGN DATA WRAPPER       DROP DATABASE
+  ALTER FUNCTION                   DROP DOMAIN
+  ALTER GROUP                      DROP FOREIGN DATA WRAPPER
+  ALTER INDEX                      DROP FUNCTION
+  ALTER LANGUAGE                   DROP GROUP
+  ALTER OPERATOR                   DROP INDEX
+  ALTER OPERATOR CLASS             DROP LANGUAGE
+  ALTER OPERATOR FAMILY            DROP OPERATOR
+  ALTER ROLE                       DROP OPERATOR CLASS
+  ALTER SCHEMA                     DROP OPERATOR FAMILY
+  ALTER SEQUENCE                   DROP OWNED
+  ALTER SERVER                     DROP ROLE
+  ALTER TABLE                      DROP RULE
+  ALTER TABLESPACE                 DROP SCHEMA
+  ALTER TEXT SEARCH CONFIGURATION  DROP SEQUENCE
+  ALTER TEXT SEARCH DICTIONARY     DROP SERVER
+  ALTER TEXT SEARCH PARSER         DROP TABLE
+  ALTER TEXT SEARCH TEMPLATE       DROP TABLESPACE
+  ALTER TRIGGER                    DROP TEXT SEARCH CONFIGURATION
+  ALTER TYPE                       DROP TEXT SEARCH DICTIONARY
+  ALTER USER                       DROP TEXT SEARCH PARSER
+  ALTER USER MAPPING               DROP TEXT SEARCH TEMPLATE
+  ALTER VIEW                       DROP TRIGGER
+  ANALYZE                          DROP TYPE
+  BEGIN                            DROP USER
+  CHECKPOINT                       DROP USER MAPPING
+  CLOSE                            DROP VIEW
+  CLUSTER                          END
+  COMMENT                          EXECUTE
+  COMMIT                           EXPLAIN
+  COMMIT PREPARED                  FETCH
+  COPY                             GRANT
+  CREATE AGGREGATE                 INSERT
+  CREATE CAST                      LISTEN
+  CREATE CONSTRAINT TRIGGER        LOAD
+  CREATE CONVERSION                LOCK
+  CREATE DATABASE                  MOVE
+  CREATE DOMAIN                    NOTIFY
+  CREATE FOREIGN DATA WRAPPER      PREPARE
+  CREATE FUNCTION                  PREPARE TRANSACTION
+  CREATE GROUP                     REASSIGN OWNED
+  CREATE INDEX                     REINDEX
+  CREATE LANGUAGE                  RELEASE SAVEPOINT
+  CREATE OPERATOR                  RESET
+  CREATE OPERATOR CLASS            REVOKE
+  CREATE OPERATOR FAMILY           ROLLBACK
+  CREATE ROLE                      ROLLBACK PREPARED
+  CREATE RULE                      ROLLBACK TO SAVEPOINT
+  CREATE SCHEMA                    SAVEPOINT
+  CREATE SEQUENCE                  SELECT
+  CREATE SERVER                    SELECT INTO
+  CREATE TABLE                     SET
+  CREATE TABLE AS                  SET CONSTRAINTS
+  CREATE TABLESPACE                SET ROLE
+  CREATE TEXT SEARCH CONFIGURATION SET SESSION AUTHORIZATION
+  CREATE TEXT SEARCH DICTIONARY    SET TRANSACTION
+  CREATE TEXT SEARCH PARSER        SHOW
+  CREATE TEXT SEARCH TEMPLATE      START TRANSACTION
+  CREATE TRIGGER                   TABLE
+  CREATE TYPE                      TRUNCATE
+  CREATE USER                      UNLISTEN
+  CREATE USER MAPPING              UPDATE
+  CREATE VIEW                      VACUUM
+  DEALLOCATE                       VALUES
+  DECLARE                          WITH

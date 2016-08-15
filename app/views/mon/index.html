@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Pokémon GO available Pokémon</h1>
+
+ <p>
+	<a href ="{{base_path}}/mon/new" class="btn btn-success">Add Pokémon</a>
+ </p>
+
+
+
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Dex number</th>
+        <th>Attack</th>
+        <th>Defense</th>
+	<th>Stamina</th>
+      </tr>
+    </thead>
+
+    <tbody>
+	{% for mon in mons %}      
+
+      <tr>
+        <td><a href="{{base_path}}/mon/{{mon.id}}">{{mon.name}}</a></td>
+        <td>{{mon.dexnumber}}</td>
+        <td>{{mon.attack}}</td>
+        <td>{{mon.defense}}</td>
+	<td>{{mon.stamina}}</td>
+      </tr>
+	{% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+
