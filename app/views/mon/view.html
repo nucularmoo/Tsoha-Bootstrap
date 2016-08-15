@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>{{mon.name}}</h1>
+  <!-- Painikkeet tähän -->
+
+  <!-- Tiedot tulee listana tähän -->
+  <ul>
+    <li><strong>Pokedex number</strong> {{mon.dexnumber}}</li>
+    <li><strong>Attack</strong> {{mon.attack}}</li>
+    <li><strong>Defense</strong> {{mon.defense}}</li>
+    <li><strong>Stamina</strong> {{mon.stamina}}</li>
+
+  </ul>
+
+{% endblock %}
+

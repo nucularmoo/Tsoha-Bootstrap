@@ -8,8 +8,12 @@
 	MonController::store();
 });
 
-  $routes->get('mon/new', function() {
+  $routes->get('/mon/new', function() {
 	MonController::create();
+});
+
+  $routes->get('/mon/:id', function($id) {
+	MonController::show($id);
 });
 
   $routes->get('/mons', function() {

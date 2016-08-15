@@ -38,10 +38,10 @@ class Mon extends BaseModel {
 		return $mons;
 	}
 
-	public static function find($dexnumber) {
+	public static function find($id) {
 
-		$query = DB::connection()->prepare('SELECT * FROM pokemon WHERE dexnumber = :dexnumber LIMIT 1');
-		$query->execute(array('dexnumber' => $dexnumber));
+		$query = DB::connection()->prepare('SELECT * FROM pokemon WHERE id = :id LIMIT 1');
+		$query->execute(array('id' => $id));
 		$row = $query->fetch();
 
 		if($row) {
