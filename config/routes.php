@@ -4,8 +4,12 @@
 	MonController::index();
 });
 
-  $routes->get('/mon/:id', function($id) {
-	MonController::show($id);
+  $routes->post('/mon', function() {
+	MonController::store();
+});
+
+  $routes->get('mon/new', function() {
+	MonController::create();
 });
 
   $routes->get('/mons', function() {

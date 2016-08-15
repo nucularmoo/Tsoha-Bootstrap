@@ -64,5 +64,16 @@ class Mon extends BaseModel {
 		}
 					
 	}
+
+	public function save() {
+
+		$query = DB::connection()->prepare('INSERT INTO Pokemon (name, dexnumber, attack, defense, stamina) VALUES (:name, :dexnumber, :attack, :defense, :stamina) RETURNING id');
+
+		$query->execute(array('name' => $this->name, 'dexnumber' => $this->dexnumber, 'attack' => $this->attack, 'defense' => $this->defense, 'stamina' => $this->stamina));
+
+		$row = $query->fetch();
+
+		$this->id = $row['id'];
+	}
 }
 ?>

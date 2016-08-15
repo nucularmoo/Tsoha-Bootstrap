@@ -7,4 +7,27 @@
 
 			View::make('mon/index.html', array('mons' => $mons));
 		}
+
+		  public static function create() {
+
+                        View::make('mon/new.html');
+                }
+
+
+		public static function store() {
+
+			$params = $_POST;
+
+			$mon = new Mon(array(
+				'name' => $params['name'],
+				'dexnumber' => $params['dexnumber'],
+				'attack' => $params['attack'],
+				'defense' => $params['defense'],
+				'stamina' => $params['stamina']
+			));
+
+		Redirect::to('/mon/' . $mon->id, array('message' => 'Added!')); 
+
+		}
+
 	}
