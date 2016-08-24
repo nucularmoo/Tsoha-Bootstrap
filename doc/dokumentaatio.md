@@ -43,37 +43,15 @@ Attribuutti | Arvojoukko | Kuvaus
 Nimi | Merkkijono, max 50 merkkiä | Trainerin käyttäjätunnus
 Password | Merkkijono, max 50 merkkiä | Trainerin salasana
 
-### Tietokohde: Type description
-Attribuutti | Arvojoukko | Kuvaus
------- | ------- | -------
-Nimi | Merkkijono, max 50 merkkiä | Pokémonin tai liikkeen tyyppi
-
-### Tietokohde: Attack
-Attribuutti | Arvojoukko | Kuvaus
------- | ------ | ------
-Nimi | Merkkijono, max 50 merkkiä | Liikkeen nimi
-Damage | Desimaali | Liikkeen tekemän vahingon määrä
-Dps | Desimaali | Liikkeen tekemä vahinko per sekunti
-Typedesc | Kokonaisluku, viite | Liikkeen tyyppi
-
 ### Tietokohde: Pokemon
 Attribuutti | Arvojoukko | Kuvaus
 ------| ---------| -------
 Dexnumber | Kokonaisluku | Pokémonin pokedexnumero
 Nimi | Merkkijono, max 50 merkkiä | Pokémonin nimi
-Typedesc A | Kokonaisluku, viite | Pokémonin primäärityyppi
-Typedesc B | Kokonaisluku, viite | Pokémonin sekundäärityyppi
-Attack | Kokonaisluku | Pokémonin hyökkäysvoima
-Defense | Kokonaisluku | Pokémonin puolustusvoima
-Stamina | Kokonaisluku | Pokémonin kestävyysvoima
-Evolution | Kokonaisluku, viite | Pokémonin seuraava kehitysaskel
-Jauheliha | Kokonaisluku | Seuraavan kehitysaskeleen vaatima jauhelihamäärä
-
-### Tietokohde: Pokemonmoves
-Attribuutti | Arvojoukko | Kuvaus
---------- | -------- | ---------
-Pokemon | Kokonaisluku, viite | Kyseinen Pokémon
-Attack | Kokonaisluku, viite | Kyseiselle Pokémonille mahdollinen liike
+Overall appraisal | Kokonaisluku | Pokémonin täydellisyysprosentin arvoluvun arviointi
+Stats appraisal | Kokonaisluku | Pokémonin bonus Individual Value (IV) arvoluvun arviointi
+Caught location | Merkkijono, max 400 merkkiä | Paikka josta Pokémon pyydystettiin
+CP | Kokonaisluku | Pokémonin Combat Power 
 
 ### Tietokohde: Pokedex
 Attribuutti | Arvojoukko | Kuvaus
@@ -81,12 +59,26 @@ Attribuutti | Arvojoukko | Kuvaus
 Trainer | Kokonaisluku, viite | Kyseinen trainer
 Pokemon | Kokonaisluku, viite | Kyseisen trainerin keräämä Pokémon
 
-###Tietokohde: Super effective
-Attribuutti | Arvojoukko | Kuvaus
--------- | --------- | --------
-Strong type | Kokonaisluku, viite | Vahva tyyppi
-Weak type | Kokonaisluku, viite | Heikko tyyppi
-
 ### Tietokannan relaatiotietokantakaavio:
 
 ![Relaatiotietokantakaavio](relaatiotietokantakaavio.png)
+
+## Tietokannan (alustava) käyttöohje
+
+Kirjautumaton käyttäjä voi sivun yläreunasta valitsemalla linkin Pokédex selata tietokantaan lisättyjä Pokémoneja ja niiden tietoja.
+
+Kirjautunut käyttäjä eli trainer voi tämän lisäksi lisätä pyydystämiensä Pokémonien tietoja sekä muokata tai poistaa omia Pokémonejaan.
+
+Lisätessään Pokémonin, trainerin on lisättävä joitakin perustietoja Pokémonistaan kuten nimi, pokedexnumero.
+Appraisal-tietueisiin tietoa lisätessään on trainerin konsultoitava Pokémon GO applikaatiostaan joukkueensa johtajaa saadakseen overall sekä stats appraisal arvot.
+Koska kullakin appraisal-arvolla on neljä eri jakaumaa, on tietokantaan lisättävä tieto mukautettu lisättäväksi asteikolla 1-4.
+Overall appraisal: 1 = 0%-50%, 2 = 51%-66%, 3 = 67%-79%, 4 = 80%-100%.
+Stats appraisal: 1 = max 0-7 bonus IV, 2 = max 8-12 bonus IV, 3 = max 13-14 bonus IV, 4 = max 15 bonus IV.
+
+Tarkemmat ohjeet joukkuekohtaisten johtajien antamien arvioiden tulkitsemiseksi ovat tulossa piakkoin.
+
+Trainerien toivotaan lisäävän mahdollisimman tarkka Pokémonin pyydyspaikka tietokantaan, jotta samankaltaisia Pokémoneja metsästävät trainerit voisivat käyttää tietokannan antamia tietoja metsästysapajista hyväkseen.
+
+
+
+
