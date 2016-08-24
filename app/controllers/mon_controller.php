@@ -27,9 +27,10 @@
 			$mon = new Mon(array(
 				'name' => $params['name'],
 				'dexnumber' => $params['dexnumber'],
-				'attack' => $params['attack'],
-				'defense' => $params['defense'],
-				'stamina' => $params['stamina']
+				'overall_appraisal' => $params['overall_appraisal'],
+				'stats_appraisal' => $params['stats_appraisal'],
+				'caught_location' => $params['caught_location'],
+				'cp' => $params['cp']
 			)); 
 
 		$mon->save();
@@ -38,4 +39,47 @@
 
 		}
 
+		public static function edit($id) {
+
+			$mon = Mon::find($id);
+			View::make('mons/edit.html', array('attributes' => $mon));
+		}
+
+		public static function update($id) {
+
+			$params = $_POST;
+
+			$attributes = array(
+				'id' => $id,
+				'name' => $params['name'],
+				'dexnumber' => $params['dexnumber'],
+				'overall_appraisal' => $params['overall_appraisal'],
+				'stats_appraisal' => $params['stats_appraisal'],
+				'caught_location' => $params['caught_location'],
+				'cp' => $params['cp']
+			);
+
+			$mon = new Mon($attributes);
+			$errors = $game->errors();
+
+			if(count($errors) > 0) {
+				View::make('mon/edit.html', array('errors' => $errors, 'attributes' => $attributes));
+
+			} else {
+
+				$game->update();
+
+				Redirect::to('/mon/' . $game->id, array('message' => 'Edit successful!'));
+			}
+
+		}
+
+		public static function destroy($id) {
+
+			$mon = new Mon(array('id' => $id));
+
+			$mon->destroy();
+
+			Redirect::to('/mon', array('message' => 'Pokémon successfully deleted!'));
+		}
 	}
