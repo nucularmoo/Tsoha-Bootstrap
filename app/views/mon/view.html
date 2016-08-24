@@ -2,9 +2,11 @@
 {% block content %}
   <h1>{{mon.name}}</h1>
   <!-- Painikkeet tähän -->
-
+{% if user_logged_in %}
 <p>
 	<button class="btn btn-danger">Delete</button> <a href "#" class="btn btn-default">Edit</a>
+</p>
+{% endif %}
 
   <!-- Tiedot tulee listana tähän -->
   <ul>

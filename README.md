@@ -11,7 +11,7 @@ Työn aihe on tietokanta Pokémon GO pelin Pokémoneille.
 
 Kirjautumattomat käyttäjät voivat selata kaikkia trainereiden pyydystämiä ja tietokantaan lisäämiä pokémoneja sekä niiden tietoja.
 
-Kirjautuneet käyttäjät voivat:
+Kirjautuneet käyttäjät voivat tämän lisäksi:
 
 * Lisätä pyydystämänsä Pokémonin ja sen tiedot tietokantaan
 * Selata henkilökohtaista Pokédexiään joka koostuu käyttäjän tietokantaan lisäämistä Pokémoneista
