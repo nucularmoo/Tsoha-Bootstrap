@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Pokémon GO Public Pokédex</h1>
+
+	{% if user_logged_in %}
+		<h1>Pokédex of trainer {{user_logged_in.name}}</h1>
+	{% else %}
+ 		 <h1>Pokémon GO Public Pokédex</h1>
+	{% endif %}
 
  <p>
 	<a href ="{{base_path}}/mon/new" class="btn btn-success">Add Pokémon</a>

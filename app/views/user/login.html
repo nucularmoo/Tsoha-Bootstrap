@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Welcome back, trainer!</h1>
+
+  <!-- Kaikki lomakkeen elementit form-tagin sisään -->
+  <form method="post" action="{{base_path}}/login">
+    <!-- Tekstikenttä käyttäjätunnukselle -->
+    <div class="form-group">
+      <label>Trainer</label>
+      <input type="text" class="form-control" name ="username" value"{{username}}">
+    </div>
+
+    <!-- Salasanakenttä salasanalle -->
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" name ="password">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Sign in!</button>
+  </form>
+{% endblock %}
+

@@ -16,12 +16,16 @@
 	MonController::show($id);
 });
 
-  $routes->get('/mons', function() {
-	HelloWorldController::mon_list();
+  $routes->get('/login', function() {
+	UserController::login();
 });
 
-  $routes->get('/login', function() {
-	HelloWorldController::login();
+  $routes->post('/login', function() {
+	UserController::handle_login();
+});
+
+ $routes->post('/logout', function() {
+	UserController::logout();
 });
 
   $routes->get('/mons/1', function() {
