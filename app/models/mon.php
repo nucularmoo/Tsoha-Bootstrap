@@ -2,7 +2,7 @@
 class Mon extends BaseModel {
 
 	//Attribuutit
-	public $id, $dexnumber, $name, $typedesc_a_id, $typedesc_b_id, $attack, $defense, $stamina, $evolution_id, $jauheliha;
+	public $id, $dexnumber, $name, $overall_appraisal, $stats_appraisal, $caught_location, $cp;
 
 	//Konstruktori
 	public function __construct($attributes) {
@@ -25,13 +25,10 @@ class Mon extends BaseModel {
 				'id' => $row['id'],
 				'dexnumber' => $row['dexnumber'],
 				'name' => $row['name'],
-				'typedesc_a_id'  => $row['typedesc_a_id'],
-				'typedesc_b_id'  => $row['typedesc_b_id'],
-				'attack' => $row['attack'],
-				'defense' => $row['defense'],
-				'stamina' => $row['stamina'],
-				'evolution_id' => $row['evolution_id'],
-				'jauheliha' => $row['jauheliha']
+				'overall_appraisal' => $row['overall_appraisal'],
+				'stats_appraisal' => $row['stats_appraisal'],
+				'caught_location' => $row['caught_location'],
+				'cp' => $row['cp']
 			));
 		}
 
@@ -50,13 +47,11 @@ class Mon extends BaseModel {
 				'id' => $row['id'],
                                 'dexnumber' => $row['dexnumber'],
                                 'name' => $row['name'],
-                                'typedesc_a_id'  => $row['typedesc_a_id'],
-                                'typedesc_b_id'  => $row['typedesc_b_id'],
-                                'attack' => $row['attack'],
-                                'defense' => $row['defense'],
-                                'stamina' => $row['stamina'],
-                                'evolution_id' => $row['evolution_id'],
-                                'jauheliha' => $row['jauheliha']
+                                'overall_appraisal' => $row['overall_appraisal'],
+                                'stats_appraisal' => $row['stats_appraisal'],
+                                'caught_location' => $row['caught_location'],
+                                'cp' => $row['cp']
+
 			));
 
 			return $mon;
@@ -67,9 +62,9 @@ class Mon extends BaseModel {
 
 	public function save() {
 
-		$query = DB::connection()->prepare('INSERT INTO Pokemon (name, dexnumber, attack, defense, stamina) VALUES (:name, :dexnumber, :attack, :defense, :stamina) RETURNING id');
+		$query = DB::connection()->prepare('INSERT INTO Pokemon (name, dexnumber, overall_appraisal, stats_appraisal, caught_location, cp) VALUES (:name, :dexnumber, :overall_appraisal, :stats_appraisal, :caught_location, :cp) RETURNING id');
 
-		$query->execute(array('name' => $this->name, 'dexnumber' => $this->dexnumber, 'attack' => $this->attack, 'defense' => $this->defense, 'stamina' => $this->stamina));
+		$query->execute(array('name' => $this->name, 'dexnumber' => $this->dexnumber, 'overall_appraisal' => $this->overall_appraisal, 'stats_appraisal' => $this->stats_appraisal, 'caught_location' => $this->caught_location, 'cp' => $this->cp));
 
 		$row = $query->fetch();
 

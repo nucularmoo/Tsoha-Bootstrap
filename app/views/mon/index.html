@@ -6,10 +6,11 @@
 	{% else %}
  		 <h1>Pokémon GO Public Pokédex</h1>
 	{% endif %}
-
+	{% if user_logged_in %}
  <p>
 	<a href ="{{base_path}}/mon/new" class="btn btn-success">Add Pokémon</a>
  </p>
+	{% endif %}
 
 
 
@@ -18,9 +19,9 @@
       <tr>
         <th>Name</th>
         <th>Dex number</th>
-        <th>Attack</th>
-        <th>Defense</th>
-	<th>Stamina</th>
+        <th>Overall Appraisal</th>
+	<th>Stats Appraisal</th>
+	<th>CP</th>
       </tr>
     </thead>
 
@@ -30,9 +31,9 @@
       <tr>
         <td><a href="{{base_path}}/mon/{{mon.id}}">{{mon.name}}</a></td>
         <td>{{mon.dexnumber}}</td>
-        <td>{{mon.attack}}</td>
-        <td>{{mon.defense}}</td>
-	<td>{{mon.stamina}}</td>
+        <td>{{mon.overall_appraisal}}</td>
+	<td>{{mon.stats_appraisal}}</td>
+	<td>{{mon.cp}}</td>
       </tr>
 	{% endfor %}
     </tbody>

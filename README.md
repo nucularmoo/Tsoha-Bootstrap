@@ -7,4 +7,15 @@ Yleisiä linkkejä:
 
 ## Työn aihe
 
-Työn aihe on tietokanta Pokemon GO pelin pokemoneille. 
+Työn aihe on tietokanta Pokémon GO pelin Pokémoneille.
+
+Kirjautumattomat käyttäjät voivat selata kaikkia trainereiden pyydystämiä ja tietokantaan lisäämiä pokémoneja sekä niiden tietoja.
+
+Kirjautuneet käyttäjät voivat:
+
+* Lisätä pyydystämänsä Pokémonin ja sen tiedot tietokantaan
+* Selata henkilökohtaista Pokédexiään joka koostuu käyttäjän tietokantaan lisäämistä Pokémoneista
+* Muokata pyydystämänsä Pokémonin tietoja
+* Poistaa pyydystämänsä Pokémonin tiedot tietokannasta
+
+Koekäyttäjätilinä toimii Besttrainereu/besttrainereu123
