@@ -1,38 +1,51 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Add a new Pokémon to your Pokédex!</h1>
+ <h1>Add a new Pokémon to your Pokédex!</h1>
 
  <h5>The Pokémon in your Pokédex will also appear in the public Pokédex for all trainers to see.</h5>
+
+{% if errors %}
+
+	<div class ="alert alert-danger">
+		<ul>
+			{%for error in errors %}
+
+				<li>{{error}}<li>
+
+			{%endfor%}
+		</ul>
+	</div>
+{%endif%}
 
   <form method="post" action="{{base_path}}/mon">
     <div class="form-group">
       <label>Name</label>
-      <input type="text" name="name" class="form-control">
+      <input type="text" name="name" class="form-control" value="{{attributes.name}}">
     </div>
 
     <div class="form-group">
       <label>Dexnumber</label>
-      <input type="text" name="dexnumber" class="form-control">
+      <input type="text" name="dexnumber" class="form-control" value="{{attributes.dexnumber}}">
     </div>
 
     <div class="form-group">
       <label>Overall appraisal</label>
-      <input type="text" name="overall_appraisal" class="form-control">
+      <input type="text" name="overall_appraisal" class="form-control" value="{{attributes.overall_appraisal}}">
     </div>
 
     <div class="form-group">
       <label>Stat appraisal</label>
-      <input type="text" name="stats_appraisal" class="form-control">
+      <input type="text" name="stats_appraisal" class="form-control" value="{{attributes.stats_appraisal}}">
     </div>
 
     <div class="form-group">
       <label>Caught location</label>
-      <textarea name="caught_location" class="form-control"></textarea>
+      <textarea name="caught_location" class="form-control">{{attributes.caught_location}}</textarea>
     </div>
 
     <div class="form-group">
 	<label>CP</label>
-	<input type="text" name="cp" class="form-control">
+	<input type="text" name="cp" class="form-control" value="{{attributes.cp}}">
     </div>
 
 

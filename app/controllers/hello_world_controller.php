@@ -22,12 +22,25 @@
    	 }
 
    	 public static function sandbox(){
-      		$pikachu = Mon::find(25);
-		$mons = Mon::all();
-
-		Kint::dump($mons);
-		Kint::dump($pikachu);
+//      		$pikachu = Mon::find(25);
+//		$mons = Mon::all();
+//
+//		Kint::dump($mons);
+//		Kint::dump($pikachu);
 
      		 //View::make('helloworld.html');
+
+		$vammamon = new Mon(array(
+
+			'name' => 'e',
+			'dexnumber' => '23',
+			'overall_appraisal' => '56',
+			'stats_appraisal' => '-3'
+
+		));
+
+		$errors =$vammamon->errors();
+
+		Kint::dump($errors);
     	}
   }
