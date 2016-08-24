@@ -69,11 +69,16 @@ Kirjautumaton käyttäjä voi sivun yläreunasta valitsemalla linkin Pokédex se
 
 Kirjautunut käyttäjä eli trainer voi tämän lisäksi lisätä pyydystämiensä Pokémonien tietoja sekä muokata tai poistaa omia Pokémonejaan.
 
-Lisätessään Pokémonin, trainerin on lisättävä joitakin perustietoja Pokémonistaan kuten nimi, pokedexnumero.
+Lisätessään Pokémonin, trainerin on lisättävä joitakin perustietoja Pokémonistaan kuten nimi ja pokedexnumero.
+
 Appraisal-tietueisiin tietoa lisätessään on trainerin konsultoitava Pokémon GO applikaatiostaan joukkueensa johtajaa saadakseen overall sekä stats appraisal arvot.
+
 Koska kullakin appraisal-arvolla on neljä eri jakaumaa, on tietokantaan lisättävä tieto mukautettu lisättäväksi asteikolla 1-4.
-Overall appraisal: 1 = 0%-50%, 2 = 51%-66%, 3 = 67%-79%, 4 = 80%-100%.
-Stats appraisal: 1 = max 0-7 bonus IV, 2 = max 8-12 bonus IV, 3 = max 13-14 bonus IV, 4 = max 15 bonus IV.
+
+Appraisal | 1 | 2 | 3 | 4 
+------|-----|-----|-----|-----
+Overall | 0%-50% | 51%-66% | 67%-79% | 80%-100%
+Stats | max 0-7 bonus IV | max 8-12 bonus IV | max 13-14 bonus IV | max 15 bonus IV.
 
 Tarkemmat ohjeet joukkuekohtaisten johtajien antamien arvioiden tulkitsemiseksi ovat tulossa piakkoin.
 
