@@ -14,6 +14,13 @@
 			View::make('mon/view.html', array('mon' => $mon));
 		}
 
+		   public static function edit($id) {
+
+                        $mon = Mon::find($id);
+                        View::make('mon/edit.html', array('mon' => $mon));
+                }
+
+
 		public static function create() {
 
                         View::make('mon/new.html');
@@ -33,30 +40,26 @@
 				'cp' => $params['cp']
 			); 
 
-		$mon = new Mon($attributes);
+			$mon = new Mon($attributes);
 
-		$errors = $mon->errors();
+			$errors = $mon->errors();
 
-		if(count($errors) == 0) {
+			if(count($errors) == 0) {
 
-			$mon->save();
+				$mon->save();
 		
 
-		Redirect::to('/mon/' . $mon->id, array('message' => 'Added!')); 
+			Redirect::to('/mon/' . $mon->id, array('message' => 'Added!')); 
 
-		} else {
+			} else {
+	
+			View::make('mon/new.html', array('errors' => $errors, 'attributes' => $attributes));
 
-		View::make('mon/new.html', array('errors' => $errors, 'attributes' => $attributes));
+			}
 
 		}
 
-		}
 
-		public static function edit($id) {
-
-			$mon = Mon::find($id);
-			View::make('mons/edit.html', array('attributes' => $mon));
-		}
 
 		public static function update($id) {
 
@@ -73,16 +76,16 @@
 			);
 
 			$mon = new Mon($attributes);
-			$errors = $game->errors();
+			$errors = $mon->errors();
 
 			if(count($errors) > 0) {
-				View::make('mon/edit.html', array('errors' => $errors, 'attributes' => $attributes));
+				View::make('mon/edit.html', array('errors' => $errors, 'mon' => $attributes));
 
 			} else {
 
-				$game->update();
+				$mon->update();
 
-				Redirect::to('/mon/' . $game->id, array('message' => 'Edit successful!'));
+				Redirect::to('/mon/' . $mon->id, array('message' => 'Edit successful!'));
 			}
 
 		}

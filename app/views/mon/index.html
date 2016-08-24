@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
+	{% if message %}
+		<div class="alert alert-success">
+			{{message}}
+		</div>
+	{% endif %}
+
 	{% if user_logged_in %}
 		<h1>Pokédex of trainer {{user_logged_in.name}}</h1>
 	{% else %}

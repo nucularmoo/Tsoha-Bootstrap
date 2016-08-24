@@ -72,6 +72,22 @@ class Mon extends BaseModel {
 		$this->id = $row['id'];
 	}
 
+	public function update() {
+
+		$query = DB::connection()->prepare('UPDATE Pokemon SET name=:name, dexnumber=:dexnumber, overall_appraisal=:overall_appraisal, stats_appraisal=:stats_appraisal, caught_location=:caught_location, cp=:cp WHERE id = :id');
+
+		$query->execute(array('id' => $this->id, 'name' => $this->name, 'dexnumber' => $this->dexnumber, 'overall_appraisal' => $this->overall_appraisal, 'stats_appraisal' => $this->stats_appraisal, 'caught_location' => $this->caught_location, 'cp' => $this->cp));
+
+	}
+
+	public function destroy() {
+
+		$query = DB::connection()->prepare('DELETE FROM Pokemon WHERE id=:id');
+
+		$query->execute(array('id' => $this->id));
+
+	}
+
 	public function validate_name() {
 		
 		$errors = array();
@@ -126,14 +142,14 @@ class Mon extends BaseModel {
 		$errors = array();
 
 		if ($this->overall_appraisal == '') {
-			$errors[] = 'Please enter an appropriate overall appraisal value between digits 1 and 4';
+			$errors[] = 'The overall appraisal value cannot be empty.';
 
 			return $errors;
 
 		}
 
 		if(!is_numeric($this->overall_appraisal)) {
-			$errors[] = 'Please enter an appropriate overall appraisal value between digits 1 and 4';
+			$errors[] = 'The overall appraisal value must be a number.';
 
 			return $errors;
 
@@ -141,7 +157,7 @@ class Mon extends BaseModel {
 
 		if(intval($this->overall_appraisal < 1) || intval($this->overall_appraisal > 4)) {
 
-			$errors[] = 'Please enter an appropriate overall appraisal value between digits 1 and 4';
+			$errors[] = 'Please consult your Team Leader for the appropriate appraisal and convert as follows: 1 = 0%-50%, 2 = 51%-66%, 3 = 67%-79%, 4 = 80%-100%.';
 
 			return $errors;
 
@@ -157,14 +173,14 @@ class Mon extends BaseModel {
                 $errors = array();
 
                 if ($this->stats_appraisal == '') {
-                        $errors[] = 'Please enter an appropriate stats appraisal value between digits 1 and 4';
+                        $errors[] = 'The stats appraisal value cannot be empty.';
 
                         return $errors;
 
                 }
 
                 if(!is_numeric($this->stats_appraisal)) {
-                        $errors[] = 'Please enter an appropriate stats appraisal value between digits 1 and 4';
+                        $errors[] = 'The stats appraisal value must be a number.';
 
                         return $errors;
 
@@ -172,7 +188,7 @@ class Mon extends BaseModel {
 
                 if(intval($this->stats_appraisal < 1) || intval($this->stats_appraisal > 4)) {
 
-                        $errors[] = 'Please enter an appropriate stats appraisal value between digits 1 and 4';
+                        $errors[] = 'Please consult your Team Leader for the approrpiate appraisal and convert as follows: 1 = max bonus IV 0-7, 2 = max bonus IV 8-12, 3 = max bonus IV 13-14, 4 = max bonus IV 15';
 
                         return $errors;
 

@@ -16,6 +16,18 @@
 	MonController::show($id);
 });
 
+  $routes->get('/mon/edit/:id', function($id) {
+	MonController::edit($id);
+});
+
+  $routes->post('/mon/edit/:id', function($id) {
+	MonController::update($id);
+});
+
+  $routes->post('/mon/destroy/:id', function($id) {
+	MonController::destroy($id);
+});
+
   $routes->get('/login', function() {
 	UserController::login();
 });

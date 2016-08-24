@@ -1,11 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>{{mon.name}}</h1>
+	<h1>{{mon.name}}</h1>
+{% if message %}
+	<div class="alert alert-success">
+		{{message}}
+	</div>
+{% endif %}
   <!-- Painikkeet tähän -->
 {% if user_logged_in %}
-<p>
-	<button class="btn btn-danger">Delete</button> <a href "#" class="btn btn-default">Edit</a>
-</p>
+	<p>
+		<form method="post" action="{{base_path}}/mon/destroy/{{mon.id}}" style="display: inline-block;">
+			<button type="submit" button class="btn btn-danger">Delete</button>
+		</form> 
+
+		<a class="btn btn.default btn-default" href= "{{base_path}}/mon/edit/{{mon.id}}" class="btn btn-default">Edit</a>
+	</p>
 {% endif %}
 
   <!-- Tiedot tulee listana tähän -->
