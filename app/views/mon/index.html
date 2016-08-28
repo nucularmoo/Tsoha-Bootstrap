@@ -23,8 +23,8 @@
   <table class="table table-striped table-bordered">
     <thead>
       <tr>
+	<th>Dexnumber</th>
         <th>Name</th>
-        <th>Dex number</th>
         <th>Overall Appraisal</th>
 	<th>Stats Appraisal</th>
 	<th>CP</th>
@@ -35,8 +35,8 @@
 	{% for mon in mons %}      
 
       <tr>
+	<td>{{mon.basemon_id}}</td>
         <td><a href="{{base_path}}/mon/{{mon.id}}">{{mon.name}}</a></td>
-        <td>{{mon.dexnumber}}</td>
         <td>{{mon.overall_appraisal}}</td>
 	<td>{{mon.stats_appraisal}}</td>
 	<td>{{mon.cp}}</td>

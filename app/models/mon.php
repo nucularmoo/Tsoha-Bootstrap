@@ -2,12 +2,12 @@
 class Mon extends BaseModel {
 
 	//Attribuutit
-	public $id, $dexnumber, $name, $overall_appraisal, $stats_appraisal, $caught_location, $cp;
+	public $id, $basemon_id, $overall_appraisal, $stats_appraisal, $caught_location, $cp;
 
 	//Konstruktori
 	public function __construct($attributes) {
 		parent::__construct($attributes);
-		$this->validators = array('validate_name','validate_dexnumber', 'validate_o_appraisal', 'validate_s_appraisal', 'validate_location', 'validate_cp');
+		$this->validators = array('validate_o_appraisal', 'validate_s_appraisal', 'validate_location', 'validate_cp');
 	}
 
 	public static function all(){
@@ -24,8 +24,7 @@ class Mon extends BaseModel {
 
 			$mons[] = new Mon(array(
 				'id' => $row['id'],
-				'dexnumber' => $row['dexnumber'],
-				'name' => $row['name'],
+				'basemon_id' => $row['basemon_id'],
 				'overall_appraisal' => $row['overall_appraisal'],
 				'stats_appraisal' => $row['stats_appraisal'],
 				'caught_location' => $row['caught_location'],
@@ -46,8 +45,7 @@ class Mon extends BaseModel {
 
 			$mon = new Mon(array(
 				'id' => $row['id'],
-                                'dexnumber' => $row['dexnumber'],
-                                'name' => $row['name'],
+				'basemon_id' => $row['basemon_id'],
                                 'overall_appraisal' => $row['overall_appraisal'],
                                 'stats_appraisal' => $row['stats_appraisal'],
                                 'caught_location' => $row['caught_location'],
@@ -63,9 +61,9 @@ class Mon extends BaseModel {
 
 	public function save() {
 
-		$query = DB::connection()->prepare('INSERT INTO Pokemon (name, dexnumber, overall_appraisal, stats_appraisal, caught_location, cp) VALUES (:name, :dexnumber, :overall_appraisal, :stats_appraisal, :caught_location, :cp) RETURNING id');
+		$query = DB::connection()->prepare('INSERT INTO Pokemon (basemon_id, overall_appraisal, stats_appraisal, caught_location, cp) VALUES (:basemon_id, :overall_appraisal, :stats_appraisal, :caught_location, :cp) RETURNING id');
 
-		$query->execute(array('name' => $this->name, 'dexnumber' => $this->dexnumber, 'overall_appraisal' => $this->overall_appraisal, 'stats_appraisal' => $this->stats_appraisal, 'caught_location' => $this->caught_location, 'cp' => $this->cp));
+		$query->execute(array('basemon_id' => $this->basemon_id, 'overall_appraisal' => $this->overall_appraisal, 'stats_appraisal' => $this->stats_appraisal, 'caught_location' => $this->caught_location, 'cp' => $this->cp));
 
 		$row = $query->fetch();
 
@@ -74,9 +72,9 @@ class Mon extends BaseModel {
 
 	public function update() {
 
-		$query = DB::connection()->prepare('UPDATE Pokemon SET name=:name, dexnumber=:dexnumber, overall_appraisal=:overall_appraisal, stats_appraisal=:stats_appraisal, caught_location=:caught_location, cp=:cp WHERE id = :id');
+		$query = DB::connection()->prepare('UPDATE Pokemon SET basemon_id=:basemon_id, overall_appraisal=:overall_appraisal, stats_appraisal=:stats_appraisal, caught_location=:caught_location, cp=:cp WHERE id = :id');
 
-		$query->execute(array('id' => $this->id, 'name' => $this->name, 'dexnumber' => $this->dexnumber, 'overall_appraisal' => $this->overall_appraisal, 'stats_appraisal' => $this->stats_appraisal, 'caught_location' => $this->caught_location, 'cp' => $this->cp));
+		$query->execute(array('id' => $this->id, 'basemon_id' => $this->basemon_id, 'overall_appraisal' => $this->overall_appraisal, 'stats_appraisal' => $this->stats_appraisal, 'caught_location' => $this->caught_location, 'cp' => $this->cp));
 
 	}
 
@@ -86,56 +84,7 @@ class Mon extends BaseModel {
 
 		$query->execute(array('id' => $this->id));
 
-	}
-
-	public function validate_name() {
-		
-		$errors = array();
-
-		if($this->name == '' || $this->name == null) {
-
-			$errors[] = 'Field "name" cannot be empty';
-		}
-
-		if(strlen($this->name) < 3) {
-		
-			$errors[] = 'Field *name" must be at least three characters';
-		}
-
-		return $errors;
-	}
-
-	public function validate_dexnumber() {
-		
-		$errors = array();
-
-		if($this->dexnumber == '' || $this->dexnumber == null) {
-
-			$errors[] = 'Field "dexnumber" cannot be empty';
-
-			return $errors;
-
-		}
-
-		if(!is_numeric($this->dexnumber)) {
-			$errors[] = 'Field "dexnumber" must be a number';
-
-			return $errors;
-		}
-
-		if(intval($this->dexnumber < 1)) {
-			$errors[] = 'Dexnumber must be a number larger than 0';
-
-			return $errors;
-
-		}
-
-		return $errors;
-
-		
-	}
-
-		 
+	}		 
 
 	public function validate_o_appraisal() {
 

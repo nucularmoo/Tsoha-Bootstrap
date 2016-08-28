@@ -36,14 +36,27 @@ Työ toteutetaan laitoksen users-palvelimella. Web-sovelluksen alustajärjestelm
 ### Tietokohde: Trainer
 Attribuutti | Arvojoukko | Kuvaus
 -------- | ------ | ------
-Nimi | Merkkijono, max 50 merkkiä | Trainerin käyttäjätunnus
+Id | Kokonaisluku, PK | Trainerin tunniste
+Name | Merkkijono, max 50 merkkiä | Trainerin käyttäjätunnus
 Password | Merkkijono, max 50 merkkiä | Trainerin salasana
+Team | Kokonaisluku, viite | Trainerin joukkue
+
+### Tietokohde: Team
+Attribuutti | Arvojoukko | Kuvaus
+-------- | ----------| ---------
+Id | Kokonaisluku, PK | Joukkueen tunniste
+Name | Merkkijono, max 10 merkkiä | Joukkueen nimi
+
+### Tietokohde: Base Pokemon
+------- | -------- | -------
+Dexnumber | Kokonaisluku, PK | Pokémonin dexnumero
+Name | Merkkijono, max 50 merkkiä | Pokémonin nimi
 
 ### Tietokohde: Pokemon
 Attribuutti | Arvojoukko | Kuvaus
 ------| ---------| -------
-Dexnumber | Kokonaisluku | Pokémonin pokedexnumero
-Nimi | Merkkijono, max 50 merkkiä | Pokémonin nimi
+Id | Kokonaisluku, PK | Kerätyn Pokémonin tunniste
+Basemon_id | Kokonaisluku, FK | Kyseisen Pokémonin basetyyppi
 Overall appraisal | Kokonaisluku | Pokémonin täydellisyysprosentin arvoluvun arviointi
 Stats appraisal | Kokonaisluku | Pokémonin bonus Individual Value (IV) arvoluvun arviointi
 Caught location | Merkkijono, max 400 merkkiä | Paikka josta Pokémon pyydystettiin
@@ -52,8 +65,8 @@ CP | Kokonaisluku | Pokémonin Combat Power
 ### Tietokohde: Pokedex
 Attribuutti | Arvojoukko | Kuvaus
 ------ | ------ | ------
-Trainer | Kokonaisluku, viite | Kyseinen trainer
-Pokemon | Kokonaisluku, viite | Kyseisen trainerin keräämä Pokémon
+Trainer | Kokonaisluku, FK | Kyseinen trainer
+Pokemon | Kokonaisluku, FK | Kyseisen trainerin keräämä Pokémon
 
 ### Tietokannan relaatiotietokantakaavio:
 

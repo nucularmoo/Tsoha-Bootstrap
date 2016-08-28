@@ -1,23 +1,24 @@
 <?php
 	require 'app/models/basemon.php';
+	require 'app/models/supermon.php';
 
 	class MonController extends BaseController {
 		public static function index() {
 			
-			$mons = Mon::all();
+			$mons = Supermon::all();
 
 			View::make('mon/index.html', array('mons' => $mons));
 		}
 
 		public static function show($id) {
 
-			$mon = Mon::find($id);
+			$mon = Supermon::find($id);
 			View::make('mon/view.html', array('mon' => $mon));
 		}
 
 		   public static function edit($id) {
 
-                        $mon = Mon::find($id);
+                        $mon = Supermon::find($id);
                         View::make('mon/edit.html', array('mon' => $mon));
                 }
 
@@ -26,7 +27,7 @@
 
 			$basemons = Basemon::all();
 
-                        View::make('mon/new.html');
+                        View::make('mon/new.html', array('basemons' => $basemons));
                 }
 
 
@@ -34,9 +35,10 @@
 
 			$params = $_POST;
 
+			$basemon_id = $params['basemon_id'];
+
 			$attributes = array(
-				'name' => $params['name'],
-				'dexnumber' => $params['dexnumber'],
+				'basemon_id' => $basemon_id,
 				'overall_appraisal' => $params['overall_appraisal'],
 				'stats_appraisal' => $params['stats_appraisal'],
 				'caught_location' => $params['caught_location'],
@@ -70,8 +72,7 @@
 
 			$attributes = array(
 				'id' => $id,
-				'name' => $params['name'],
-				'dexnumber' => $params['dexnumber'],
+				'basemon_id' => $params['basemon_id'],
 				'overall_appraisal' => $params['overall_appraisal'],
 				'stats_appraisal' => $params['stats_appraisal'],
 				'caught_location' => $params['caught_location'],

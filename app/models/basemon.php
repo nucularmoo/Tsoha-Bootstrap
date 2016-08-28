@@ -2,7 +2,7 @@
 
 	class Basemon extends BaseModel {
 
-		public $id, $name;
+		public $dexnumber, $name;
 
 		public function __construct($attributes) {
 		
@@ -12,7 +12,7 @@
 
 		public static function all() {
 
-			$query = DB::connection()->prepare('SELECT * FROM base_pokemon');
+			$query = DB::connection()->prepare('SELECT * FROM base_pokemon ORDER BY name');
 			$query->execute();
 			$rows = $query->fetchAll();
 			$basemons = array();
@@ -21,7 +21,7 @@
 
 				$basemons[] = new Basemon(array(
 
-					'id' => $row['id'],
+					'dexnumber' => $row['dexnumber'],
 					'name' => $row['name']
 				));
 			}
@@ -29,17 +29,17 @@
 			return $basemons;
 		}
 
-		public static function find_by_id($id) {
+		public static function find_by_id($dexnumber) {
 
-			$query = DB::connection()->prepare('SELECT * FROM base_pokemon WHERE id = :id LIMIT 1');
-			$query->execute(array('id' => $id));
+			$query = DB::connection()->prepare('SELECT * FROM base_pokemon WHERE dexnumber = :dexnumber LIMIT 1');
+			$query->execute(array('dexnumber' => $dexnumber));
 			$row = $query->fetch();
 
 			if($row) {
 
 				$basemon = new Basemon(array(
 
-					'id' => $row['id'],
+					'dexnumber' => $row['dexnumber'],
 					'name' => $row['name']
 				));
 
@@ -61,7 +61,7 @@
 
 				$basemon = new Basemon(array(
 
-					'id' => $row['id'],
+					'dexnumber' => $row['dexnumber'],
 					'name' => $row['name']
 				));
 
