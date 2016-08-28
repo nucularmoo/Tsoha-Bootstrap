@@ -39,7 +39,7 @@ Attribuutti | Arvojoukko | Kuvaus
 Id | Kokonaisluku, PK | Trainerin tunniste
 Name | Merkkijono, max 50 merkkiä | Trainerin käyttäjätunnus
 Password | Merkkijono, max 50 merkkiä | Trainerin salasana
-Team | Kokonaisluku, viite | Trainerin joukkue
+Team | Kokonaisluku, FK | Trainerin joukkue
 
 ### Tietokohde: Team
 Attribuutti | Arvojoukko | Kuvaus
@@ -48,6 +48,7 @@ Id | Kokonaisluku, PK | Joukkueen tunniste
 Name | Merkkijono, max 10 merkkiä | Joukkueen nimi
 
 ### Tietokohde: Base Pokemon
+Attribuutti | Arvojoukko | Kuvaus
 ------- | -------- | -------
 Dexnumber | Kokonaisluku, PK | Pokémonin dexnumero
 Name | Merkkijono, max 50 merkkiä | Pokémonin nimi
