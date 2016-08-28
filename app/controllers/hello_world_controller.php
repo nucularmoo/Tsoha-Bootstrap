@@ -22,13 +22,13 @@
    	 }
 
    	 public static function sandbox(){
-//      		$pikachu = Mon::find(25);
-//		$mons = Mon::all();
+      		$pikachu = Basemon::find_by_id(25);
+		$mons = Basemon::all();
 //
-//		Kint::dump($mons);
-//		Kint::dump($pikachu);
+		Kint::dump($mons);
+		Kint::dump($pikachu);
 
-     		 //View::make('helloworld.html');
+//     		View::make('helloworld.html');
 
 		$vammamon = new Mon(array(
 

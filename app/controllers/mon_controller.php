@@ -1,4 +1,5 @@
 <?php
+	require 'app/models/basemon.php';
 
 	class MonController extends BaseController {
 		public static function index() {
@@ -22,6 +23,8 @@
 
 
 		public static function create() {
+
+			$basemons = Basemon::all();
 
                         View::make('mon/new.html');
                 }

@@ -17,7 +17,17 @@
 	</div>
 {%endif%}
 
+
   <form method="post" action="{{base_path}}/mon">
+
+    <div class="form-group">
+	<label>Derp</label>
+	<select class="form-control" name="mon">
+		{% for basemon in basemons %}
+			<option value="{{basemon.id}}">{{basemon.name}}</option>
+		{% endfor %}
+	</select>
+    </div>
     <div class="form-group">
       <label>Name</label>
       <input type="text" name="name" class="form-control" value="{{attributes.name}}">

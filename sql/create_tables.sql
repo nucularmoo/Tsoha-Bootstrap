@@ -2,6 +2,11 @@ CREATE TABLE trainer(
 	id SERIAL PRIMARY KEY,
 	name varchar(50) NOT NULL,
 	password varchar(50) NOT NULL
+);
+
+CREATE TABLE base_pokemon(
+	id INT NOT NULL,
+	name varchar(50) NOT NULL
 ); 
 
 CREATE TABLE pokemon(
