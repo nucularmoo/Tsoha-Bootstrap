@@ -18,4 +18,8 @@ Kirjautuneet käyttäjät voivat tämän lisäksi:
 * Muokata pyydystämänsä Pokémonin tietoja
 * Poistaa pyydystämänsä Pokémonin tiedot tietokannasta
 
-Koekäyttäjätilinä toimii Besttrainereu/besttrainereu123
+Koekäyttäjätileinä toimivat Besttrainereu/besttrainereu123 (Valor), Besttrainerna/besttrainerna123 (Mystic) sekä Amazingasian/gosu123 (Instinct).
+
+Syynä useaan koekäyttäjätiliin on Pokémonien lisäämisessä ja muokkaamisessa käytettyjen joukkuejohtajien appraisal-arviointien tekstipohjaiset eroavaisuudet.
+
+

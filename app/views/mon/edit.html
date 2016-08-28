@@ -17,12 +17,16 @@
 
   <form method="post" action="{{base_path}}/mon/edit/{{mon.id}}">
     <div class="form-group">
-      <label>Name</label>
-      <input type="text" name="name" class="form-control" value="{{mon.name}}">
-    </div>
-    <div class="form-group">
-      <label>Dex number</label>
-      <input type="text" name="dexnumber" class="form-control" value="{{mon.dexnumber}}">
+	<label>Name</label>
+	<select class="form-control" name="basemon_id">
+		{% for basemon in basemons %}
+			{% if basemon.dexnumber == mon.basemon_id %}
+				<option selected="selected" value="{{basemon.dexnumber}}">{{basemon.name}}</option>
+			{%else %}
+				<option value="{{basemon.dexnumber}}">{{basemon.name}}</option>
+			{% endif %}
+		{% endfor %}
+	</select>
     </div>
     <div class="form-group">
       <label>Overall appraisal</label>
@@ -32,8 +36,6 @@
       <label>Stats appraisal</label>
       <input type="text" name="stats_appraisal" class="form-control" value="{{mon.stats_appraisal}}">
     </div>
-
-
     <div class="form-group">
       <label>Caught location</label>
       <input type="text" name="caught_location"  class="form-control" value="{{mon.caught_location}}">

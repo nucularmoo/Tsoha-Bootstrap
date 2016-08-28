@@ -18,8 +18,9 @@
 
 		   public static function edit($id) {
 
+			$basemons = Basemon::all();
                         $mon = Supermon::find($id);
-                        View::make('mon/edit.html', array('mon' => $mon));
+                        View::make('mon/edit.html', array('mon' => $mon, 'basemons' => $basemons));
                 }
 
 
@@ -33,13 +34,16 @@
 
 		public static function store() {
 
+			$basemons = Basemon::all();
+
 			$params = $_POST;
 
 			$basemon_id = $params['basemon_id'];
+			$overall_appraisal = $params['overall_appraisal'];
 
 			$attributes = array(
 				'basemon_id' => $basemon_id,
-				'overall_appraisal' => $params['overall_appraisal'],
+				'overall_appraisal' => $overall_appraisal,
 				'stats_appraisal' => $params['stats_appraisal'],
 				'caught_location' => $params['caught_location'],
 				'cp' => $params['cp']
@@ -58,7 +62,7 @@
 
 			} else {
 	
-			View::make('mon/new.html', array('errors' => $errors, 'attributes' => $attributes));
+			View::make('mon/new.html', array('errors' => $errors, 'basemons' => $basemons, 'attributes' => $attributes));
 
 			}
 
@@ -68,11 +72,14 @@
 
 		public static function update($id) {
 
+			$basemons = Basemon::all();
 			$params = $_POST;
+
+			$basemon_id = $params['basemon_id'];
 
 			$attributes = array(
 				'id' => $id,
-				'basemon_id' => $params['basemon_id'],
+				'basemon_id' => $basemon_id,
 				'overall_appraisal' => $params['overall_appraisal'],
 				'stats_appraisal' => $params['stats_appraisal'],
 				'caught_location' => $params['caught_location'],
@@ -83,7 +90,7 @@
 			$errors = $mon->errors();
 
 			if(count($errors) > 0) {
-				View::make('mon/edit.html', array('errors' => $errors, 'mon' => $attributes));
+				View::make('mon/edit.html', array('errors' => $errors, 'basemons' => $basemons, 'mon' => $attributes));
 
 			} else {
 

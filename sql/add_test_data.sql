@@ -4,6 +4,7 @@ INSERT INTO team (id, name) VALUES ('3', 'Instinct');
 
 INSERT INTO trainer (name, password, team_id) VALUES ('Besttrainereu', 'besttrainereu123', '1');
 INSERT INTO trainer (name, password, team_id) VALUES ('Besttrainerna', 'besttrainerna123', '2');
+INSERT INTO trainer (name, password, team_id) VALUES ('Amazingasian', 'gosu123', '3');
  
 INSERT INTO base_pokemon (dexnumber, name) VALUES ('1', 'Bulbasaur');
 INSERT INTO base_pokemon (dexnumber, name) VALUES ('2', 'Ivysaur');
