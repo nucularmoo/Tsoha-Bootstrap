@@ -33,14 +33,15 @@
             <span class="icon-bar"></span>
           </button>
           <!-- Sovelluksen nimi -->
-          <a class="navbar-brand" href="{{base_path}}">POGO DB</a>
+          <a class="navbar-brand" href="{{base_path}}">Public Pokédex</a>
         </div>
-
+	{% if user_logged_in %}
         <div class="collapse navbar-collapse" id="navigation">
           <ul class="nav navbar-nav">
             <!-- Navigaation linkit -->
-            <li><a href="{{base_path}}/mon">Pokédex</a></li>
+            <li><a href="{{base_path}}/mon">Your Pokédex</a></li>
           </ul>
+	{% endif %}
 	{% if user_logged_in %}
 		<ul class ="nav navbar-nav navbar-right">
 		<li> Logged in as: {{user_logged_in.name}}</li>
@@ -51,6 +52,7 @@
 	<ul class="nav navbar-nav navbar-right">
 
 	<li><a href="{{base_path}}/login">Sign in</a></li>
+	<li><a href="{{base_path}}/user/new">Sign up</a></li>
 		{% endif %}
 	</ul>
         </div>

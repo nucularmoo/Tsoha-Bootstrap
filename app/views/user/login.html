@@ -2,15 +2,21 @@
 {% block content %}
   <h1>Welcome back, trainer!</h1>
 
-  <!-- Kaikki lomakkeen elementit form-tagin sisään -->
+  {% if message %}
+	<div class="alert alert-success">
+		{{message}}
+	</div>
+  {% endif %}
+
+ 
   <form method="post" action="{{base_path}}/login">
-    <!-- Tekstikenttä käyttäjätunnukselle -->
+    
     <div class="form-group">
       <label>Trainer</label>
       <input type="text" class="form-control" name ="username" value"{{username}}">
     </div>
 
-    <!-- Salasanakenttä salasanalle -->
+    
     <div class="form-group">
       <label>Password</label>
       <input type="password" class="form-control" name ="password">

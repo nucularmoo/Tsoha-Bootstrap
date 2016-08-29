@@ -178,12 +178,154 @@
 				{% endif %}
 			{% endif %}
 		</select>
-   </div>
+  	 </div>
+	 <div class="form-group">
+  	      <label>Stats appraisal</label>
+                <select class="form-control" name="stats_appraisal">
+                        {% if user_logged_in.team_id == 1 %}
+                                {% if attributes.stats_appraisal == 1 %}
+				<option selected="selected" value="1">It's stats don't point to greatness in battle.</option>
 
-    <div class="form-group">
-      <label>Stat appraisal</label>
-      <input type="text" name="stats_appraisal" class="form-control" value="{{attributes.stats_appraisal}}">
-    </div>
+				<option value="2">It's stats indicate that in battle, it'll get the job done.</option>
+
+				<option value="3">It's got excellent stats! How exciting!</option>
+
+				<option value="4">I'm blown away by it's stats. WOW!</option>
+		
+				{% elseif attributes.stats_appraisal == 2 %}
+				<option value="1">It's stats don't point to greatness in battle.</option>
+
+				<option selected ="selected" value="2">It's stats indicate that in battle, it'll get the job done.</option>
+
+				<option value="3">It's got excellent stats! How exciting!</option>
+
+				<option value="4">I'm blown away by it's stats. WOW!</option>
+
+				{% elseif attributes.stats_appraisal == 3 %}
+				<option value="1">It's stats don't point to greatness in battle.</option>
+
+				<option value="2">It's stats indicate that in battle, it'll get the job done.</option>
+
+				<option selected ="selected"  value="3">It's got excellent stats! How exciting!</option>
+
+				<option value="4">I'm blown away by it's stats. WOW!</option>
+				
+				{% elseif attributes.stats_appraisal == 4 %}
+				<option value="1">It's stats don't point to greatness in battle.</option>
+
+				<option value="2">It's stats indicate that in battle, it'll get the job done.</option>
+
+				<option value="3">It's got excellent stats! How exciting!</option>
+
+				<option selected="selected"  value="4">I'm blown away by it's stats. WOW!</option>
+
+				{% else %}
+				<option value="1">It's stats don't point to greatness in battle.</option>
+
+				<option value="2">It's stats indicate that in battle, it'll get the job done.</option>
+
+				<option value="3">It's got excellent stats! How exciting!</option>
+
+				<option value="4">I'm blown away by it's stats. WOW!</option>
+				
+				{% endif %}
+			{% elseif user_logged_in.team_id == 2 %}
+				{% if attributes.stats_appraisal == 1 %}
+				<option selected="selected"  value="1">It's stats are not out of the norm, in my opinion.</option>
+
+				<option value="2">It's stats are noticeably trending to the positive.</option>
+
+				<option value="3">I am certainly impressed by it's stats, I must say.</option>
+
+				<option value="4">It's stats exceed my calculations! It's incredible!</option>
+
+				{% elseif attributes.stats_appraisal == 2 %}
+				<option value="1">It's stats are not out of the norm, in my opinion.</option>
+
+				<option selected="selected" value="2">It's stats are noticeably trending to the positive.</option>
+
+				<option value="3">I am certainly impressed by it's stats, I must say.</option>
+
+				<option value="4">It's stats exceed my calculations! It's incredible!</option>
+
+				{% elseif attributes.stats_appraisal == 3 %}
+				<option value="1">It's stats are not out of the norm, in my opinion.</option>
+
+				<option value="2">It's stats are noticeably trending to the positive.</option>
+
+				<option selected="selected" value="3">I am certainly impressed by it's stats, I must say.</option>
+
+				<option value="4">It's stats exceed my calculations! It's incredible!</option>
+		
+				{% elseif attributes.stats_appraisal == 4 %}
+				<option value="1">It's stats are not out of the norm, in my opinion.</option>
+
+				<option value="2">It's stats are noticeably trending to the positive.</option>
+
+				<option value="3">I am certainly impressed by it's stats, I must say.</option>
+
+				<option selected="selected"  value="4">It's stats exceed my calculations! It's incredible!</option>
+
+				{% else %}
+				<option value="1">It's stats are not out of the norm, in my opinion.</option>
+
+				<option value="2">It's stats are noticeably trending to the positive.</option>
+
+				<option value="3">I am certainly impressed by it's stats, I must say.</option>
+
+				<option value="4">It's stats exceed my calculations! It's incredible!</option>
+				
+				{% endif %}
+			{% elseif user_logged_in.team_id == 3 %}
+				{% if attributes.stats_appraisal == 1 %}
+				<option selected="selected" value="1">It's stats are all right, but kinda basic, as far as I can see.</option>
+
+				<option value="2">It's definitively got some good stats. Definitively!</option>
+
+				<option value="3">It's stats are really strong! Impressive.</option>
+
+				<option value="4">It's stats are the best I've ever seen! No doubt about it!</option>
+
+				{% elseif attributes.stats_appraisal == 2 %}
+				<option value="1">It's stats are all right, but kinda basic, as far as I can see.</option>
+
+				<option selected="selected" value="2">It's definitively got some good stats. Definitively!</option>
+
+				<option value="3">It's stats are really strong! Impressive.</option>
+
+				<option value="4">It's stats are the best I've ever seen! No doubt about it!</option>
+
+				{% elseif attributes.stats_appraisal == 3 %}
+				<option value="1">It's stats are all right, but kinda basic, as far as I can see.</option>
+
+				<option value="2">It's definitively got some good stats. Definitively!</option>
+
+				<option selected="selected" value="3">It's stats are really strong! Impressive.</option>
+
+				<option value="4">It's stats are the best I've ever seen! No doubt about it!</option>
+	
+				{% elseif attributes.stats_appraisal == 4 %}
+				<option value="1">It's stats are all right, but kinda basic, as far as I can see.</option>
+
+				<option value="2">It's definitively got some good stats. Definitively!</option>
+
+				<option value="3">It's stats are really strong! Impressive.</option>
+
+				<option selected="selected" value="4">It's stats are the best I've ever seen! No doubt about it!</option>
+
+				{% else %}
+				<option value="1">It's stats are all right, but kinda basic, as far as I can see.</option>
+
+				<option value="2">It's definitively got some good stats. Definitively!</option>
+
+				<option value="3">It's stats are really strong! Impressive.</option>
+
+				<option value="4">It's stats are the best I've ever seen! No doubt about it!</option>
+			
+				{% endif %}
+			{% endif %}
+		</select>
+	</div>
 
     <div class="form-group">
       <label>Caught location</label>

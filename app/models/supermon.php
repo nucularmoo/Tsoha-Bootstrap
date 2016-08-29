@@ -10,7 +10,7 @@
 
 		public static function all() {
 
-			$query = DB::connection()->prepare('SELECT* FROM POKEMON INNER JOIN BASE_POKEMON ON POKEMON.BASEMON_ID = BASE_POKEMON.DEXNUMBER');
+			$query = DB::connection()->prepare('SELECT* FROM POKEMON INNER JOIN BASE_POKEMON ON POKEMON.BASEMON_ID = BASE_POKEMON.DEXNUMBER ORDER BY POKEMON.BASEMON_ID');
 			$query->execute();
 			$rows = $query->fetchAll();
 			$supermons = array();
@@ -60,6 +60,8 @@
 			return null;
 
 		}
+
+		
 
 	}
 

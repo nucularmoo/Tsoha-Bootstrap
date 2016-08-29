@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+	<h1>You are welcome to sign up here, trainer!</h1>
+
+	<h5>For account security reasons, please do not reuse your designated Pokémon GO trainer account name and/or password for this account!</h5>
+
+	{% if errors %}
+
+		<div class="alert alert-danger">
+
+			<ul>
+
+				{% for error in errors %}
+					<li>{{error}}</li>
+				{% endfor %}
+			</ul>
+		</div>
+	{% endif %}
+
+	<form method="post" action="{{base_path}}/user/new">
+		<div class="form-group">
+			<label>Name</label>
+			<input type="text" name="name" class="form-control" value="{{attributes.name}}">
+		</div>
+		<div class="form-group">
+			<label>Password</label>
+			<input type="password" name="password" class="form-control" value="{{attributes.password}}">
+		</div>
+		<div class="form-group">
+				<label>Choose your team, trainer! Choosing the right team will help you enter correct appraisals into your Pokédex.</label>
+				<select class="form-control" name="team_id">
+					{% for team in teams %}
+						{% if team.id == attributes.team_id %}
+							<option selected="selected" value="{{team.id}}">{{team.name}}</option>
+						{% else %}
+							<option value="{{team.id}}">{{team.name}}</option>
+						{% endif %}
+					{% endfor %}
+				</select>
+		</div>
+
+
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary">Sign up!</button>
+		</div>
+	</form>
+
+
+{% endblock %}			

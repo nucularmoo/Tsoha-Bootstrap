@@ -1,32 +1,54 @@
 {% extends "base.html" %}
 {% block content %}
 	<h1>{{mon.name}}</h1>
-{% if message %}
-	<div class="alert alert-success">
-		{{message}}
-	</div>
-{% endif %}
-  <!-- Painikkeet tähän -->
-{% if user_logged_in %}
-	<p>
-		<form method="post" action="{{base_path}}/mon/destroy/{{mon.id}}" style="display: inline-block;">
-			<button type="submit" button class="btn btn-danger">Delete</button>
-		</form> 
+	
+	{% if message %}
+		<div class="alert alert-success">
+			{{message}}
+		</div>
+	{% endif %}
 
-		<a class="btn btn.default btn-default" href= "{{base_path}}/mon/edit/{{mon.id}}" class="btn btn-default">Edit</a>
-	</p>
-{% endif %}
+	{% if user_logged_in %}
+		<p>
+			<form method="post" action="{{base_path}}/mon/destroy/{{mon.id}}" style="display: inline-block;">
+				<button type="submit" button class="btn btn-danger">Delete</button>
+			</form> 
 
-  <!-- Tiedot tulee listana tähän -->
-  <ul>
-    <li><strong>Pokedex number</strong> {{mon.basemon_id}}</li>
-    <li><strong>Overall Appraisal</strong> {{mon.overall_appraisal}}</li>
-    <li><strong>Stats Appraisal</strong> {{mon.stats_appraisal}}</li>
-    <li><strong>Caught location</strong> {{mon.caught_location}}</li>
-    <li><strong>Pokemon CP</strong> {{mon.cp}}</li>
+			<a class="btn btn.default btn-default" href= "{{base_path}}/mon/edit/{{mon.id}}" class="btn btn-default">Edit</a>
+		</p>
+	{% endif %}
 
 
-  </ul>
+	<ul>
+		<li><strong>Pokedex number</strong> {{mon.basemon_id}}</li>
+		<li><strong>Pokémon perfection</strong>
+		  {% if mon.overall_appraisal == 1 %}
+       		        0% - 50%
+	          {% elseif mon.overall_appraisal == 2 %}
+	                51% - 65%
+	          {% elseif mon.overall_appraisal == 3 %}
+	                66% - 80%
+	          {% elseif mon.overall_appraisal == 4 %}
+	                81% - 100%
+	          {% endif %}
+		</li>
+		<li><strong>Max IV in atleast one base stat</strong>
+		 {% if mon.stats_appraisal == 1 %}
+	                0 to 7
+	         {% elseif mon.stats_appraisal == 2 %}
+	                8 to 12
+	         {% elseif mon.stats_appraisal == 3 %}
+	                13 or 14
+	         {% elseif mon.stats_appraisal == 4 %}
+	                15
+	         {% endif %}
+	 
+		</li>
+		<li><strong>Caught location</strong> {{mon.caught_location}}</li>
+		<li><strong>Pokemon CP</strong> {{mon.cp}}</li>
+
+
+	</ul>
 
 {% endblock %}
 

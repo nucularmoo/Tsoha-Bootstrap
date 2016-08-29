@@ -40,12 +40,16 @@
 	UserController::logout();
 });
 
-  $routes->get('/mons/1', function() {
-	HelloWorldController::mon_show();
+  $routes->post('/user/new', function() {
+	UserController::store();
+});
+
+  $routes->get('/user/new', function() {
+	UserController::create();
 });
 
   $routes->get('/', function() {
-    HelloWorldController::index();
+	PublicController::index();
   });
 
   $routes->get('/hiekkalaatikko', function() {

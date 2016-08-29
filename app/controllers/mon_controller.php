@@ -40,11 +40,12 @@
 
 			$basemon_id = $params['basemon_id'];
 			$overall_appraisal = $params['overall_appraisal'];
+			$stats_appraisal = $params['stats_appraisal'];
 
 			$attributes = array(
 				'basemon_id' => $basemon_id,
 				'overall_appraisal' => $overall_appraisal,
-				'stats_appraisal' => $params['stats_appraisal'],
+				'stats_appraisal' => $stats_appraisal,
 				'caught_location' => $params['caught_location'],
 				'cp' => $params['cp']
 			); 
@@ -76,12 +77,14 @@
 			$params = $_POST;
 
 			$basemon_id = $params['basemon_id'];
+			$overall_appraisal = $params['overall_appraisal'];
+			$stats_appraisal = $params['stats_appraisal'];
 
 			$attributes = array(
 				'id' => $id,
 				'basemon_id' => $basemon_id,
-				'overall_appraisal' => $params['overall_appraisal'],
-				'stats_appraisal' => $params['stats_appraisal'],
+				'overall_appraisal' => $overall_appraisal,
+				'stats_appraisal' => $stats_appraisal,
 				'caught_location' => $params['caught_location'],
 				'cp' => $params['cp']
 			);

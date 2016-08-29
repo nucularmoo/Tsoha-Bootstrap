@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+	 <h1>Pokémon GO public Pokémon database</h1>
+
+	<table class="table table-striped table-bordered">
+		<thead>
+			<tr>
+				<th>Dexnumber</th>
+				<th>Name</th>
+				<th>Pokémon was caught at</th>
+			</tr>
+		</thead>
+
+		<tbody>
+
+			{% for mon in mons %}
+
+				<tr>
+
+					<td>{{mon.basemon_id}}</td>
+					<td>{{mon.name}}</td>
+					<td>{{mon.caught_location}}</td>
+				</tr>
+
+			{% endfor %}
+
+		</tbody>
+	</table>
+{% endblock %}

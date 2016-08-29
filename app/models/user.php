@@ -6,6 +6,7 @@
 
 		public function __construct($attributes) {
 			parent::__construct($attributes);
+			$this->validators = array('validate_name', 'validate_password');
 		}
 
 		public static function find($id) {
@@ -51,6 +52,57 @@
 			} else {
 				return null;
 			}
+
+		}
+		
+		public function save() {
+
+			$query = DB::connection()->prepare('INSERT INTO Trainer (name, password, team_id) VALUES (:name, :password, :team_id) RETURNING id');
+
+			$query->execute(array('name' => $this->name, 'password' => $this->password, 'team_id' => $this->team_id));
+
+			$row = $query->fetch();
+
+			$this->id = $row['id'];
+		}
+
+
+		public function validate_name() {
+
+			$errors = array();
+
+			if($this->name == '' || $this->name == null) {
+
+				$errors[] = 'Field "name" cannot be empty.';
+
+			}
+
+			if(strlen($this->name) < 4) {
+
+				$errors[] = 'Field "name" must be at least four characters.';
+
+			}
+
+			return $errors;
+
+		}
+
+		public function validate_password() {
+
+			$errors = array();
+
+			if($this->password == '' || $this->password == null) {
+
+				$errors[] = 'Field "password" cannot be empty.';
+			}
+
+			if(strlen($this->password) < 5) {
+
+				$errors[] = 'Field "password" must be at least five characters.';
+
+			}
+
+			return $errors;
 
 		}
 

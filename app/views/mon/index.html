@@ -25,8 +25,8 @@
       <tr>
 	<th>Dexnumber</th>
         <th>Name</th>
-        <th>Overall Appraisal</th>
-	<th>Stats Appraisal</th>
+        <th>Pokémon perfection</th>
+	<th>Max IV in atleast one base stat</th>
 	<th>CP</th>
       </tr>
     </thead>
@@ -37,8 +37,25 @@
       <tr>
 	<td>{{mon.basemon_id}}</td>
         <td><a href="{{base_path}}/mon/{{mon.id}}">{{mon.name}}</a></td>
-        <td>{{mon.overall_appraisal}}</td>
-	<td>{{mon.stats_appraisal}}</td>
+	{% if mon.overall_appraisal == 1 %}
+        	<td>0% - 50%</td>
+	{% elseif mon.overall_appraisal == 2 %}
+		<td>51% - 65%</td>
+	{% elseif mon.overall_appraisal == 3 %}
+		<td>66% - 80%</td>
+	{% elseif mon.overall_appraisal == 4 %}
+		<td>81% - 100%</td>
+	{% endif %}
+	
+	{% if mon.stats_appraisal == 1 %}
+		<td>0 to 7</td>
+	{% elseif mon.stats_appraisal == 2 %}
+		<td>8 to 12</td>
+	{% elseif mon.stats_appraisal == 3 %}
+		<td>13 or 14</td>
+	{% elseif mon.stats_appraisal == 4 %}
+		<td>15</td>
+	{% endif %}
 	<td>{{mon.cp}}</td>
       </tr>
 	{% endfor %}
