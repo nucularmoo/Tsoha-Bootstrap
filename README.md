@@ -17,7 +17,6 @@ Kirjautuneet käyttäjät voivat tämän lisäksi:
 * Selata henkilökohtaista Pokédexiään joka koostuu käyttäjän tietokantaan lisäämistä Pokémoneista
 * Muokata pyydystämänsä Pokémonin tietoja
 * Poistaa pyydystämänsä Pokémonin tiedot tietokannasta
-
 * Muokata käyttäjätiliään
 * Poistaa käyttäjätilinsä
 * Katsella käyttäjätilinsä tietoja
@@ -29,9 +28,10 @@ Koekäyttäjätileinä toimivat esimerkiksi:
 * Amazingasian/gosu123 (Instinct)
 
 Syynä useaan koekäyttäjätiliin on Pokémonien lisäämisessä ja muokkaamisessa käytettyjen joukkuejohtajien appraisal-arviointien tekstipohjaiset eroavaisuudet.
-Koska web-sovelluksessa toimii uusien käyttäjätilien tekeminen, ei koekäyttö ole enää sidottu ehdottomasti vain ja ainoastaan näihin koekäyttäjätileihin.
 
-###HUOM!!
+Koska web-sovelluksessa toimii tästä eteenpäin uusien käyttäjätilien luominen, ei koekäyttö ole enää sidottu ehdottomasti vain ja ainoastaan näihin koekäyttäjätileihin.
+
+#HUOM!!
 
 Käyttäjätilien tietojen muokkaus/poisto toimii ihan aikuisten oikeasti tällähetkellä niin jos koekäyttäjätileissä ilmenee jotain ongelmia niin on mahdollista että niiden tietoja on vahingossa muokattu tai että ne on poistettu, jos mikään koekäyttäjätileistä ei toimi, on uuden koekäyttäjätilin tekeminen suositeltavaa.
 
