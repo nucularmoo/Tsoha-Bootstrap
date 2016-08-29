@@ -129,5 +129,12 @@ Tähän pitää vielä lisätä jotain.
 
 ##Käyttöliittymä ja järjestelmän komponentit
 
-Tähän pitää vielä lisätä jotain.
+![Kayttoliittymakaavio](kayttoliittymakaavio.png)
+
+Vihreät laatikot ovat julkisia sivuja. Oranssit laatikot ovat kirjautumista vaativat sivut.
+
+Kaikki mon_controller.php:ta käyttävät sivut käyttävät ilmeisesti myös mon.php:ta, basemon.php:ta sekä supermon.php:ta.
+
+Sivuilla on navigaatiopalkki.
+
 
