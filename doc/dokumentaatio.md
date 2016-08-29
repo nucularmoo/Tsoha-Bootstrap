@@ -79,7 +79,7 @@ Pokemon | Kokonaisluku, FK | Kyseisen trainerin keräämä Pokémon
 
 ![Relaatiotietokantakaavio](relaatiotietokantakaavio.png)
 
-## Tietokannan (alustava) käyttöohje
+## Tietokannan käyttöohje
 
 Kirjautumaton käyttäjä voi selata etusivun julkista Pokémonien ja niiden pyyntipaikkojen listausta.
 
@@ -99,5 +99,35 @@ Appraisal-valikot tarjoavat joukkuekohtaiset dialogi-vaihtoehdot trainerin käyt
 Trainerien toivotaan lisäävän mahdollisimman tarkka Pokémonin pyydyspaikka tietokantaan, jotta samanlajisia Pokémoneja metsästävät trainerit voisivat käyttää tietokannan antamia tietoja mahdollisista metsästysapajista hyväkseen.
 
 
+## Järjestelmän yleisrakenne
 
+Tietokantasovellusta tehdessä on noudatettu MVC-mallia. Kontrollerit, näkymät ja mallit sijaitsevat hakemistoissa controllers, views ja models.
+Käytetyt apukirjastot on sijoitettu hakemistoon lib ja asetukset ovat tiedostossa settings.php.
+
+Näkymät on jaettu views-kansiossa mallien perusteella kansioihin.
+
+* Käyttäjä (user)
+* Kirjautuneen käyttäjän Pokémonit (mon)
+* Kirjautumattoman käyttäjän näkymät (puplik)
+
+Kontrollerit on jaettu mallien perusteella:
+
+* Pokemonkontrolleri (mon_controller.php)
+* Käyttäjäkontrolleri (user_controller.php)
+
+#####Istunto
+
+Rekisteröityneellä käyttäjällä eli trainerilla on käyttäjätunnus, joka on liitetty tietokannassa trainer-taulukkoon.
+
+Kirjautuneen käyttäjän lisätessä Pokémon tietokantaan valitaan istunnon perusteella käyttäjän henkilökohtaiseen Pokédexiin oikea käyttäjä (toteuttamatta).
+Kirjautuneen käyttäjän katsellessa tai muokatessa käyttäjätilinsä tietoja istuntoa käytetään varmistamaan että kirjautunut käyttäjä voi katsella ja muokata vain omia käyttäjätilinsä tietoja.
+Kirjautuneen käyttäjän katsellessa tarkemmin Pokémonin tietoja tai oman Pokédexinsä listausta käytetään istuntoa salliakseen käyttäjän nähdä Pokémonien lisää, muokkaa sekä poista-painikkeet.
+
+#####Asetukset
+
+Tähän pitää vielä lisätä jotain.
+
+##Käyttöliittymä ja järjestelmän komponentit
+
+Tähän pitää vielä lisätä jotain.
 
