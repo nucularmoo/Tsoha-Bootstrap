@@ -18,12 +18,24 @@ Kirjautuneet käyttäjät voivat tämän lisäksi:
 * Muokata pyydystämänsä Pokémonin tietoja
 * Poistaa pyydystämänsä Pokémonin tiedot tietokannasta
 
-Koekäyttäjätileinä toimivat: 
+* Muokata käyttäjätiliään
+* Poistaa käyttäjätilinsä
+* Katsella käyttäjätilinsä tietoja
+
+Koekäyttäjätileinä toimivat esimerkiksi: 
 
 * Besttrainereu/besttrainereu123 (Valor)
-*  Besttrainerna/besttrainerna123 (Mystic)
-*  Amazingasian/gosu123 (Instinct)
+* Besttrainerna/besttrainerna123 (Mystic)
+* Amazingasian/gosu123 (Instinct)
 
 Syynä useaan koekäyttäjätiliin on Pokémonien lisäämisessä ja muokkaamisessa käytettyjen joukkuejohtajien appraisal-arviointien tekstipohjaiset eroavaisuudet.
+Koska web-sovelluksessa toimii uusien käyttäjätilien tekeminen, ei koekäyttö ole enää sidottu ehdottomasti vain ja ainoastaan näihin koekäyttäjätileihin.
 
+###HUOM!!
+
+Käyttäjätilien tietojen muokkaus/poisto toimii ihan aikuisten oikeasti tällähetkellä niin jos koekäyttäjätileissä ilmenee jotain ongelmia niin on mahdollista että niiden tietoja on vahingossa muokattu tai että ne on poistettu, jos mikään koekäyttäjätileistä ei toimi, on uuden koekäyttäjätilin tekeminen suositeltavaa.
+
+####TO DO:
+
+* Trainerkohtaiset Pokédexit ja kaikki niihin liittyvä toiminnallisuus puuttuu vielä.
 

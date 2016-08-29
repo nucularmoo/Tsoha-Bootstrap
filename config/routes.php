@@ -28,6 +28,22 @@
 	MonController::destroy($id);
 });
 
+  $routes->get('/user/view/:id', function($id) {
+	UserController::show($id);
+});
+
+  $routes->get('/user/edit/:id', function($id) {
+	UserController::edit($id);
+});
+
+  $routes->post('/user/edit/:id', function($id) {
+	UserController::update($id);
+});
+
+  $routes->post('/user/destroy/:id', function($id) {
+	UserController::destroy($id);
+});
+
   $routes->get('/login', function() {
 	UserController::login();
 });

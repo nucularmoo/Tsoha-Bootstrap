@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+	{% if trainer.id == user_logged_in.id %}
+
+	<h1>Your profile</h1>
+
+	{% if message %}
+		<div class="alert alert-success">
+			{{message}}
+		</div>
+	{% endif %}
+
+	<p>
+		<form method="post" action="{{base_path}}/user/destroy/{{trainer.id}}" style="display: inline block;">
+			<button type="submit" button class="btn btn-danger">Delete account</button>
+		<form>
+
+		<a class="btn btn.default btn-default" href="{{base_path}}/user/edit/{{trainer.id}}" class="btn btn-default">Edit information</a>
+
+	</p>
+
+	<ul>
+		<li><strong>Trainer name</strong> {{trainer.name}}</li>
+		<li><strong>Team</strong>
+			{% if trainer.team_id == 1 %}
+				Valor
+			{% elseif trainer.team_id == 2 %}
+				Mystic
+			{% elseif trainer.team_id == 3 %}
+				Instinct
+			{% endif %}
+		</li>
+	</ul>
+
+	{% endif %}
+
+{% endblock %}
