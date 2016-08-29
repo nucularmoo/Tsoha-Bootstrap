@@ -115,7 +115,7 @@ Kontrollerit on jaettu mallien perusteella:
 * Pokemonkontrolleri (mon_controller.php)
 * Käyttäjäkontrolleri (user_controller.php)
 
-#####Istunto
+###Istunto
 
 Rekisteröityneellä käyttäjällä eli trainerilla on käyttäjätunnus, joka on liitetty tietokannassa trainer-taulukkoon.
 
@@ -123,7 +123,7 @@ Kirjautuneen käyttäjän lisätessä Pokémon tietokantaan valitaan istunnon pe
 Kirjautuneen käyttäjän katsellessa tai muokatessa käyttäjätilinsä tietoja istuntoa käytetään varmistamaan että kirjautunut käyttäjä voi katsella ja muokata vain omia käyttäjätilinsä tietoja.
 Kirjautuneen käyttäjän katsellessa tarkemmin Pokémonin tietoja tai oman Pokédexinsä listausta käytetään istuntoa salliakseen käyttäjän nähdä Pokémonien lisää, muokkaa sekä poista-painikkeet.
 
-#####Asetukset
+###Asetukset
 
 Tähän pitää vielä lisätä jotain.
 
