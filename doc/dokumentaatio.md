@@ -2,12 +2,15 @@
 
 Työn aihe on tietokanta Pokemon GO pelille.
 
-Tarkoituksena on luoda tietokanta pelin pelaajien pyydystämille Pokémoneille ja näiden kiinnostaville attribuuteille kuten esimerkiksi sille, mistä pelaajat ovat löytäneet tiettyjä Pokémoneja.
+Tarkoituksena on luoda tietokanta sivulle rekisteröityneiden pelin pelaajien eli trainerien pyydystämille Pokémoneille.
 
-Loppuvaiheessa toivottavaa olisi, että tietokannassa olisi kirjautumismahdollisuus jotta käyttäjät voisivat tietokantaa käyttäen
-tallentaa sekä muokata omia pokemonkokoelmiaan.
+Tietokanta tarjoaa rekisteröitymättömille sekä rekisteröityneille käyttäjille mahdollisuuden tarkastella mistä tietokantaan lisätyt Pokémonit on pyydystetty ja näin ollen tarjota
+vihjeenomaista tietoa siitä, missä tiettyjen Pokémonien pyydystämistä voisi kannattaa yrittää.
 
-Työ toteutetaan laitoksen users-palvelimella. Web-sovelluksen alustajärjestelmässä käytetään joko Javaa tai PHP:ta.
+Tietokanta tarjoaa rekisteröityneille, kirjautuneille käyttäjille myös mahdollisuuden tarkastella itse pyydystämiensä tietokantaan lisättyjen Pokémonien kiinnostavia tietoja kuten niiden
+täydellisyysprosentteja. Kirjautuneet käyttäjät voivat myös halutessaan siistiä henkilökohtaista Pokédexiään poistamalla tarpeettomaksi näkemänsä Pokémonit tai muokata niiden tietoja.
+
+Työ toteutetaan laitoksen users-palvelimella. Web-sovelluksen alustajärjestelmässä käytetään PHP:ta.
 
 ## Käyttötapaukset
 
@@ -17,11 +20,14 @@ Työ toteutetaan laitoksen users-palvelimella. Web-sovelluksen alustajärjestelm
 ### Pokemonin tietojen muuttaminen
   Kirjautunut käyttäjä voi muokata lisäämiensä Pokémonien tietoja
 
+### Pokemonin poistaminen
+  Kirjautunut käyttäjät voi poista lisäämänsä Pokémonin tietokannasta
+
 ### Pokemonien selaaminen
   Kaikki käyttäjät voivat selata tietokannan pokemoneja, kirjautuneet käyttäjät voivat myös selata erikseen itse lisäämiään Pokémoneja
 
 ### Muita käyttötapauksia
-  Rekisteröityminen, kirjautuminen
+  Rekisteröityminen, kirjautuminen, tunnuksien muokkaus, tunnuksien poisto
 
 ### Käyttötapauskaavio:
 
@@ -75,24 +81,22 @@ Pokemon | Kokonaisluku, FK | Kyseisen trainerin keräämä Pokémon
 
 ## Tietokannan (alustava) käyttöohje
 
-Kirjautumaton käyttäjä voi sivun yläreunasta valitsemalla linkin Pokédex selata tietokantaan lisättyjä Pokémoneja ja niiden tietoja.
+Kirjautumaton käyttäjä voi selata etusivun julkista Pokémonien ja niiden pyyntipaikkojen listausta.
+
+Kirjautumaton käyttäjä voi myös luoda itselleen käyttäjätilin sivustolle painamalla navigaatiopalkin Sign up-painiketta.
+Luodessa käyttäjätilin, käyttäjän on annettava nimimerkki, salasana, sekä valita edustamansa joukkue.
+Edustamansa joukkueen oikeellisuus on tärkeää, sillä tämä tieto auttaa trainereita arvioimaan Pokémoniensa vahvuuden itse peliapplikaation joukkuekohtaisten johtajien vihjeiden perusteella Pokémonien tietokantaan lisäämis- ja muokkaamisvaiheessa.
+Jos kuitenkin tiliä luodessa trainer on vahingossa valinnut väärän joukkueen, voi trainer muokata tilinsä tietoja ja näin korjata edustamansa joukkueen oikeaksi.
 
 Kirjautunut käyttäjä eli trainer voi tämän lisäksi lisätä pyydystämiensä Pokémonien tietoja sekä muokata tai poistaa omia Pokémonejaan.
 
-Lisätessään Pokémonin, trainerin on lisättävä joitakin perustietoja Pokémonistaan kuten nimi ja pokedexnumero.
+Lisätessään Pokémonin, trainer valitsee pyydystämänsä Pokémonin tyypin valikosta sekä lisää muut Pokémonin lisäykseen vaadittavat tiedot.
 
-Appraisal-tietueisiin tietoa lisätessään on trainerin konsultoitava Pokémon GO applikaatiostaan joukkueensa johtajaa saadakseen overall sekä stats appraisal arvot.
+Appraisal-valikoista oikeita vaihtoehtoja valitessaan on trainerin konsultoitava Pokémon GO applikaatiostaan joukkueensa johtajaa saadakseen tietää Pokémoninsa ominaisuuksista.
 
-Koska kullakin appraisal-arvolla on neljä eri jakaumaa, on tietokantaan lisättävä tieto mukautettu lisättäväksi asteikolla 1-4.
+Appraisal-valikot tarjoavat joukkuekohtaiset dialogi-vaihtoehdot trainerin käyttäjätiliin merkityn joukkueen mukaisesti.
 
-Appraisal | 1 | 2 | 3 | 4 
-------|-----|-----|-----|-----
-Overall | 0%-50% | 51%-66% | 67%-79% | 80%-100%
-Stats | max 0-7 bonus IV | max 8-12 bonus IV | max 13-14 bonus IV | max 15 bonus IV
-
-Tarkemmat ohjeet joukkuekohtaisten johtajien antamien arvioiden tulkitsemiseksi ovat tulossa piakkoin.
-
-Trainerien toivotaan lisäävän mahdollisimman tarkka Pokémonin pyydyspaikka tietokantaan, jotta samankaltaisia Pokémoneja metsästävät trainerit voisivat käyttää tietokannan antamia tietoja metsästysapajista hyväkseen.
+Trainerien toivotaan lisäävän mahdollisimman tarkka Pokémonin pyydyspaikka tietokantaan, jotta samanlajisia Pokémoneja metsästävät trainerit voisivat käyttää tietokannan antamia tietoja mahdollisista metsästysapajista hyväkseen.
 
 
 
