@@ -31,7 +31,7 @@ Työ toteutetaan laitoksen users-palvelimella. Web-sovelluksen alustajärjestelm
 
 ### Tietokannan käsitekaavio:
 
-![Kasitekaavio](kasitekaavio.png)
+![Kasitekaavio](kasitekaavio_v2.png)
 
 ### Tietokohde: Trainer
 Attribuutti | Arvojoukko | Kuvaus
