@@ -1,8 +1,18 @@
 <?php
-	require 'app/models/basemon.php';
-	require 'app/models/supermon.php';
+	
+	/**
+	 * Luokka MonController vastaa kirjautuneen käyttäjän näkymien luomisesta sekä välittää tallennettavat, muutettavat tai poistettavat tiedot
+	 * Pokemon-tietokohteisiin liittyen luokalle mon.php.
+	 */	
 
 	class MonController extends BaseController {
+
+
+		/**
+		 * metodi index hakee kaikki kirjautuneen käyttäjän pokemon-tietokohteet ja luo niistä käyttäjäkohtaisen
+		 * pokedex-näkymän
+		 */
+
 		public static function index() {
 			
 			$mons = Supermon::all();
@@ -10,11 +20,21 @@
 			View::make('mon/index.html', array('mons' => $mons));
 		}
 
+		/**
+		 * metodi show hakee sille annetun parametrin perusteella pokemon- ja base_pokemon-tietokohteen yhdistetyn ilmentymän 
+		 * ja luo sen tietoja käyttäen yksittäisen näkymän näiden tietokohteiden liitokselle
+		 */
+
 		public static function show($id) {
 
 			$mon = Supermon::find($id);
 			View::make('mon/view.html', array('mon' => $mon));
 		}
+
+		/**
+		 * metodi edit hakee kaikki base_pokemon-tietokohteet sekä sille annetun parametrin perusteella pokemon- ja base_pokemon-tietokohteen
+		 * yhdistetyn ilmentymän sekä luo pokemon-tietokohteen muokkausnäkymän näiden tietoja käyttäen
+		 */
 
 		   public static function edit($id) {
 
