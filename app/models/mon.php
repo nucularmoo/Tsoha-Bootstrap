@@ -113,6 +113,11 @@
 			$query->execute(array('id' => $this->id));
 	
 		}		 
+
+		/**
+		 * Metodi validate_o_appraisal varmistaa pokemon-tietokohteen overall_appraisal tietueeseen
+		 * lisättävissä tai muutettavissa olevan tiedon oikeellisuudesta
+		 */
 	
 		public function validate_o_appraisal() {
 	
@@ -143,7 +148,10 @@
 			return $errors;
 		}
 	
-	
+		/**
+		 * Metodi validate_s_appraisal varmistaa Pokemon-tietokohteen stats_appraisal-tietueeseen
+		 * lisättävän tai muutettavan tiedon oikeellisuuden ennen lisäysten tai muutosten sallimista
+		 */
 	 
 		 public function validate_s_appraisal() {
 	
@@ -173,6 +181,11 @@
 		
        			         return $errors;
 		       	 }
+
+		/**
+		 * Metodi validate_location varmistaa ennen Pokemon-tietokohteen caught_location-tietueen
+		 * tietojen muuttamista tai lisäämistä niiden oikeellisuudesta
+		 */
 		
 		public function validate_location() {
 		
@@ -186,6 +199,11 @@
 	
 			return $errors;
 		}
+
+		/**
+		 * Metodi validate_cp varmistaa ennen Pokemon-tietokohteen cp-tietueeseen tiedon
+		 * lisäämistä tai muokkaamista tiedon oikeellisuudesta ennenkuin tietoa lisätään tai muokataan
+		 */
 	
 		public function validate_cp() {
 	
