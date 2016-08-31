@@ -42,7 +42,10 @@
                         $mon = Supermon::find($id);
                         View::make('mon/edit.html', array('mon' => $mon, 'basemons' => $basemons));
                 }
-
+		
+		/**
+		 * metodi create hakee kaikki base_pokemon tietokohteet sekä välittää ne lomakesivulle jolla uusi Pokémon-entry lisätään tietokantaan
+		 */
 
 		public static function create() {
 
@@ -50,6 +53,11 @@
 
                         View::make('mon/new.html', array('basemons' => $basemons));
                 }
+
+		/**
+		 * metodi store on vastuussa uuden pokemon-tietokohteen tallenukseen liittyen tiedon oikeellisuuden varmoistamisesta sekä
+		 * tietokohteen tietojen välityksestä tiedot tallenvataan mon.php-luokkaan, ja onnistuneen lisäyksen jälkeisen sivun lataamisesta
+		 */
 
 
 		public static function store() {
@@ -89,7 +97,10 @@
 
 		}
 
-
+		/**
+		 * metodi update on vastuussa jo olemassaolevan pokemon-tietokohteen tietojen päiivityksen oikeellisuuden varmistamisesta sekä
+		 * päivitettyjen tietokohteen tietojen välityksestä tiedot päivittämään mon.php-luokkaan
+		 */
 
 		public static function update($id) {
 
@@ -123,6 +134,11 @@
 			}
 
 		}
+
+		/**
+		 * metodi destroy on vastuussa sille parametrina annetun pokemon-tietokohteen tunnisteen tiedon välittämisestä 
+		 * tietokohteen poistavalle mon-php luokalle
+		 */
 
 		public static function destroy($id) {
 

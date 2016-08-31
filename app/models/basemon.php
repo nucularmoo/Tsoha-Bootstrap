@@ -1,5 +1,10 @@
 <?php
 
+	/**
+	 * Luokka Basemon on vastuussa base_pokemon-tietokohteen tietojen tietokantakyselyistä sekä näiden tietojen välittämisesttä
+	 * edelleen asianomaisille kontrollereille
+	 */
+
 	class Basemon extends BaseModel {
 
 		public $dexnumber, $name;
@@ -8,6 +13,11 @@
 		
 			parent::__construct($attributes);
 		}
+
+		/**
+		 * Metodi all on vastuussa kaikkien base_pokemonien hakemisesta tietokannassa aakkosjärjestyksessä sekä näiden tietojen edelleen välittäminen
+		 * asianomaisille kontrollereille
+		 */
 
 
 		public static function all() {
@@ -28,6 +38,11 @@
 
 			return $basemons;
 		}
+
+		/**
+		 * Metodi find_by_id ottaa parametrina vastaan base_pokemonin tunnisteen ja löytäessään tämän tietokannasta palauttaa sen tiedot asianomaiselle
+		 * kontrollerille tai null, jos tietokohdetta ei löydy
+		 */
 
 		public static function find_by_id($dexnumber) {
 
@@ -50,6 +65,11 @@
 			return null;
 
 		}
+
+		/**
+		 * Metodi find_by_name ottaa parametrina vastaan base_pokemonin nimen ja löytäessään tämän tietokannasta palauttaa sen tiedot asianomaiselle
+		 * kontrollerille tai null, jos tietokohdetta ei löydy
+		 */
 
 		public static function find_by_name($name) {
 
