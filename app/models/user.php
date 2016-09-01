@@ -42,6 +42,53 @@
 			}
 		}
 
+		public static function find_by_name($name) {
+
+			$query = DB::connection()->prepare('SELECT * FROM TRAINER WHERE name = :name LIMIT 1');
+			$query->execute(array('name' => $name));
+			$row = $query->fetch();
+
+			if($row) {
+
+				$user = new User(array(
+					'id' => $row['id'],
+					'name' => $row['name'],
+					'password' => $row['password'],
+					'team_id' => $row['team_id']
+					));
+					
+				return $user;
+
+			} else {
+	
+				return null;
+				}
+		}
+
+		public static function find_by_name_and_id($id, $name) {
+
+			$query = DB::connection()->prepare('SELECT * FROM TRAINER WHERE name = :name AND id != :id');
+                        $query->execute(array('name' => $name, 'id' => $id));
+                        $row = $query->fetch();
+
+                        if($row) {
+
+                                $user = new User(array(
+                                        'id' => $row['id'],
+                                        'name' => $row['name'],
+                                        'password' => $row['password'],
+                                        'team_id' => $row['team_id']
+                                        ));
+
+                                return $user;
+
+                        } else {
+
+                                return null;
+                                }
+                }
+
+
 		/**
 		 * Metodi authenticate ottaa parametrina trainer-tietokohteen nimen ja salasanan ja hakee tietokannasta
 		 * niitä vastaavaa tietokohdetta, palauttaen sen tiedot asianomaiselle kontrollerille tietokohteen
@@ -133,7 +180,32 @@
 
 			}
 
+			
+
+			if($this->id == '') {			
+
+				$test = User::find_by_name($this->name);
+
+				if ($test != null) {
+
+					$errors[] = 'Name already exists.';
+					
+				} 
+
+			} else {
+			
+				$test = User::find_by_name_and_id($this->id, $this->name);
+
+					if ($test != null) {
+
+						$errors[] = 'Name already exists.';
+					}
+				}
+				
+
 			return $errors;
+
+			
 
 		}
 
