@@ -8,15 +8,12 @@
 	{% endif %}
 
 	{% if user_logged_in %}
+		{% if trainer.id == user_logged_in.id %}
 		<h1>Pokédex of trainer {{user_logged_in.name}}</h1>
-	{% else %}
- 		 <h1>Pokémon GO Public Pokédex</h1>
-	{% endif %}
-	{% if user_logged_in %}
  <p>
 	<a href ="{{base_path}}/mon/new" class="btn btn-success">Add Pokémon</a>
  </p>
-	{% endif %}
+	
 
 
 
@@ -33,7 +30,7 @@
 
     <tbody>
 	{% for mon in mons %}      
-
+		{% if mon.trainer_id == user_logged_in.id %}
       <tr>
 	<td>{{mon.basemon_id}}</td>
         <td><a href="{{base_path}}/mon/{{mon.id}}">{{mon.name}}</a></td>
@@ -58,8 +55,11 @@
 	{% endif %}
 	<td>{{mon.cp}}</td>
       </tr>
+	{% endif %}
 	{% endfor %}
     </tbody>
   </table>
+{% endif %}
+{% endif %}
 {% endblock %}
 

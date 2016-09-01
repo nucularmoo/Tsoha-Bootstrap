@@ -7,7 +7,7 @@
 
 	class Supermon extends BaseModel {
 
-		public $id, $name, $basemon_id, $overall_appraisal, $stats_appraisal, $caught_location, $cp;
+		public $id, $trainer_id, $name, $basemon_id, $overall_appraisal, $stats_appraisal, $caught_location, $cp;
 
 		public function __construct($attributes) {
 		
@@ -44,6 +44,34 @@
 			return $supermons;
 			
 		}
+
+		public static function all_by_trainerid($trainer_id) {
+
+			$query = DB::connection()->prepare('SELECT * FROM POKEDEX INNER JOIN POKEMON ON POKEDEX.POKEMON_ID = POKEMON.ID JOIN BASE_POKEMON ON BASE_POKEMON.DEXNUMBER = POKEMON.BASEMON_ID WHERE POKEDEX.TRAINER_ID = :trainer_id ORDER BY POKEMON.BASEMON_ID');
+			$query->execute(array('trainer_id' => $trainer_id));
+			$rows = $query->fetchAll();
+			$supermons = array();
+
+			foreach($rows as $row) {
+
+				$supermons[] = new Supermon(array(
+
+				'id' => $row['id'],
+				'trainer_id' => $row['trainer_id'],
+				'name' => $row['name'],
+                                'basemon_id' => $row['basemon_id'],
+				'overall_appraisal' => $row['overall_appraisal'],
+                                'stats_appraisal' => $row['stats_appraisal'],
+                                'caught_location' => $row['caught_location'],
+                                'cp' => $row['cp']
+
+                                ));
+                        }
+
+                        return $supermons;
+
+                }
+
 
 		/**
 		 * Metodi find hakee ja palauttaa sille parametrina annetun Pokemonin sekä siihen liitetyn base_pokemonin tiedot ja palauttaa ne Supermon-oliona

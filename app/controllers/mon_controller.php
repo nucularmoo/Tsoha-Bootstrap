@@ -20,6 +20,13 @@
 			View::make('mon/index.html', array('mons' => $mons));
 		}
 
+		public static function dexindex($trainer_id) {
+
+			$mons = Supermon::all_by_trainerid($trainer_id);
+			$trainer = User::find($trainer_id);
+			View::make('mon/index.html', array('mons' => $mons, 'trainer' => $trainer));
+		}
+
 		/**
 		 * metodi show hakee sille annetun parametrin perusteella pokemon- ja base_pokemon-tietokohteen yhdistetyn ilmentymän 
 		 * ja luo sen tietoja käyttäen yksittäisen näkymän näiden tietokohteiden liitokselle
@@ -66,6 +73,8 @@
 
 			$params = $_POST;
 
+			$trainer_id = $params['trainer_id'];
+
 			$basemon_id = $params['basemon_id'];
 			$overall_appraisal = $params['overall_appraisal'];
 			$stats_appraisal = $params['stats_appraisal'];
@@ -79,12 +88,20 @@
 			); 
 
 			$mon = new Mon($attributes);
+			
 
 			$errors = $mon->errors();
 
 			if(count($errors) == 0) {
 
 				$mon->save();
+				
+				$tributes = array(
+					'trainer_id' => $trainer_id,
+					'pokemon_id' => $mon->id
+				);
+				$pokedex = new Pokedex($tributes);
+				$pokedex->save();
 		
 
 			Redirect::to('/mon/' . $mon->id, array('message' => 'Added!')); 
@@ -140,12 +157,27 @@
 		 * tietokohteen poistavalle mon-php luokalle
 		 */
 
-		public static function destroy($id) {
+		public static function destroy_mon($id, $trainer_id) {
+
+			$pokedex = new Pokedex(array('trainer_id' => $trainer_id, 'pokemon_id' => $id));
+
+                        $pokedex->destroy();
+
 
 			$mon = new Mon(array('id' => $id));
 
 			$mon->destroy();
 
-			Redirect::to('/mon', array('message' => 'Pokémon successfully deleted!'));
+			Redirect::to('/pokedex/' . $trainer_id, array('message' => 'Pokémon successfully deleted!'));
+		}
+
+		public static function destroy_dex($id, $trainer_id) {
+
+			$pokedex = new Pokedex(array('trainer_id' => $trainer_id, 'pokemon_id' => $id));
+
+			$pokedex->destroy();
+
+			Redirect::to('/pokedex/' . $trainer_id, array('message' => 'Delete successful!'));
+
 		}
 	}

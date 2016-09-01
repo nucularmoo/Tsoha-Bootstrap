@@ -12,10 +12,12 @@
 	{% endif %}
 
 	<p>
-		<form method="post" action="{{base_path}}/user/destroy/{{trainer.id}}" style="display: inline block;">
-			<button type="submit" button class="btn btn-danger">Delete account</button>
-		<form>
-
+		<form method="post" action="{{base_path}}/user/destroy/{{trainer.id}}" style="display: inline-block;">
+		<button type="submit" button class="btn btn-danger">Delete account only</button>
+		</form>
+		<form method="post" action="{{base_path}}/user/destroyall/{{trainer.id}}" style="display: inline-block;">
+		<button type="submit" button class="btn btn-warning">Delete account AND your Pokédex entries</button>
+		</form>
 		<a class="btn btn.default btn-default" href="{{base_path}}/user/edit/{{trainer.id}}" class="btn btn-default">Edit information</a>
 
 	</p>

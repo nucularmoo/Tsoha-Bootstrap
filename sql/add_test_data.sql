@@ -164,3 +164,10 @@ INSERT INTO pokemon (basemon_id, overall_appraisal, stats_appraisal, caught_loca
 INSERT INTO pokemon (basemon_id, overall_appraisal, stats_appraisal, caught_location, cp) VALUES ('134', '3', '4', 'Suomenlinna ferry docks', '1671');
 INSERT INTO pokemon (basemon_id, overall_appraisal, stats_appraisal, caught_location, cp) VALUES ('137', '1', '2', 'Near Viikki Kindergarten', '673');
 
+INSERT INTO pokedex (trainer_id, pokemon_id) VALUES ('1', '5');
+INSERT INTO pokedex (trainer_id, pokemon_id) VALUES ('1', '3');
+INSERT INTO pokedex (trainer_id, pokemon_id) VALUES ('2', '1');
+INSERT INTO pokedex (trainer_id, pokemon_id) VALUES ('2', '2');
+INSERT INTO pokedex (trainer_id, pokemon_id) VALUES ('1', '4');
+
+

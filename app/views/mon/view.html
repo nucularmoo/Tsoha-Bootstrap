@@ -10,10 +10,13 @@
 
 	{% if user_logged_in %}
 		<p>
-			<form method="post" action="{{base_path}}/mon/destroy/{{mon.id}}" style="display: inline-block;">
-				<button type="submit" button class="btn btn-danger">Delete</button>
-			</form> 
 
+			<form method="post" action="{{base_path}}/mon/destroy/{{mon.id}}/{{user_logged_in.id}}" style="display: inline-block;">
+				<button type="submit" button class="btn btn-danger">Delete from database</button>
+			</form> 
+			<form method="post" action="{{base_path}}/destroydex/{{mon.id}}/{{user_logged_in.id}}" style="display: inline-block;">
+				<button type="submit" button class="btn btn-warning">Delete from my Pokédex</button>
+			</form>
 			<a class="btn btn.default btn-default" href= "{{base_path}}/mon/edit/{{mon.id}}" class="btn btn-default">Edit</a>
 		</p>
 	{% endif %}

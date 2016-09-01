@@ -159,7 +159,11 @@
 		 * edelleen sen tietokannasta poistavalle users.php luokalle
 		 */
 
-		public static function destroy($id) {
+		public static function destroy_trainer_keep_public_dex($id) {
+
+			$pokedex = new Pokedex(array('trainer_id' => $id));
+
+			$pokedex->destroy_all_by_trainer_keep_public_dex();
 
 			$user = new User(array('id' => $id));
 
@@ -169,6 +173,18 @@
 
 		}
  
+		public static function destroy_trainer_and_pokemons($id) {
 
+			$pokedex = new Pokedex(array('trainer_id' => $id));
+
+			$pokedex->destroy_all_by_trainer();
+
+			$user = new User(array('id' => $id));
+
+			$user->destroy();
+
+			Redirect::to('/', array('message' => 'Account and Pokémons successfully deleted!'));
+
+		}
 
 	}
