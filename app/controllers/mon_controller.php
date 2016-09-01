@@ -32,10 +32,21 @@
 		 * ja luo sen tietoja käyttäen yksittäisen näkymän näiden tietokohteiden liitokselle
 		 */
 
-		public static function show($id) {
+		public static function show($id, $trainer_id) {
 
-			$mon = Supermon::find($id);
-			View::make('mon/view.html', array('mon' => $mon));
+			$trainer = User::find($trainer_id);
+			$mon = Supermon::find_by_trainerid($id, $trainer_id);
+
+			if ($mon == null) {
+
+				$mons = Supermon::all_by_trainerid($trainer_id);
+				$trainer = User::find($trainer_id);
+				View::make('mon/index.html', array('mons' => $mons, 'trainer' => $trainer));
+
+			} else {
+			View::make('mon/view.html', array('mon' => $mon, 'trainer'=> $trainer));
+
+			}
 		}
 
 		/**
@@ -43,11 +54,22 @@
 		 * yhdistetyn ilmentymän sekä luo pokemon-tietokohteen muokkausnäkymän näiden tietoja käyttäen
 		 */
 
-		   public static function edit($id) {
+		   public static function edit($id, $trainer_id) {
 
 			$basemons = Basemon::all();
-                        $mon = Supermon::find($id);
-                        View::make('mon/edit.html', array('mon' => $mon, 'basemons' => $basemons));
+                        $mon = Supermon::find_by_trainerid($id, $trainer_id);
+			$trainer = User::find($trainer_id);
+			
+			if ($mon == null) {
+
+				$mons = Supermon::all_by_trainerid($trainer_id);
+				$trainer = User::find($trainer_id);
+				View::make('mon/index.html', array('mons' => $mons, 'trainer' => $trainer));
+
+			} else {
+
+                        View::make('mon/edit.html', array('mon' => $mon, 'basemons' => $basemons, 'trainer' => $trainer));
+			}
                 }
 		
 		/**

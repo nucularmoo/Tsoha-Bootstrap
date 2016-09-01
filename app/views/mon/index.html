@@ -33,7 +33,7 @@
 		{% if mon.trainer_id == user_logged_in.id %}
       <tr>
 	<td>{{mon.basemon_id}}</td>
-        <td><a href="{{base_path}}/mon/{{mon.id}}">{{mon.name}}</a></td>
+        <td><a href="{{base_path}}/mon/{{mon.id}}/{{user_logged_in.id}}">{{mon.name}}</a></td>
 	{% if mon.overall_appraisal == 1 %}
         	<td>0% - 50%</td>
 	{% elseif mon.overall_appraisal == 2 %}

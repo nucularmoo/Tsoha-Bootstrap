@@ -72,6 +72,34 @@
 
                 }
 
+		public static function find_by_trainerid($id, $trainer_id) {
+
+			$query = DB::connection()->prepare('SELECT * FROM POKEDEX INNER JOIN POKEMON ON POKEDEX.POKEMON_ID = POKEMON.ID JOIN BASE_POKEMON ON BASE_POKEMON.DEXNUMBER = POKEMON.BASEMON_ID WHERE POKEDEX.TRAINER_ID = :trainer_id AND POKEMON.ID = :id');
+			$query->execute(array('trainer_id' => $trainer_id, 'id' => $id));
+			$row = $query->fetch();
+
+			if($row) {
+
+				$supermon = new Supermon(array(
+
+					'id' => $row['id'],
+					'name' => $row['name'],
+					'basemon_id' => $row['basemon_id'],
+                                        'overall_appraisal' => $row['overall_appraisal'],
+                                        'stats_appraisal' => $row['stats_appraisal'],
+                                        'caught_location' => $row['caught_location'],
+                                        'cp' => $row['cp']
+                                ));
+
+                                return $supermon;
+
+                        }
+
+                        return null;
+
+                }
+
+
 
 		/**
 		 * Metodi find hakee ja palauttaa sille parametrina annetun Pokemonin sekä siihen liitetyn base_pokemonin tiedot ja palauttaa ne Supermon-oliona

@@ -12,12 +12,12 @@
 	MonController::create();
 });
 
-  $routes->get('/mon/:id', function($id) {
-	MonController::show($id);
+  $routes->get('/mon/:id/:trainer_id', function($id, $trainer_id) {
+	MonController::show($id, $trainer_id);
 });
 
-  $routes->get('/mon/edit/:id', function($id) {
-	MonController::edit($id);
+  $routes->get('/mon/edit/:id/:trainer_id', function($id, $trainer_id) {
+	MonController::edit($id, $trainer_id);
 });
 
   $routes->post('/mon/edit/:id', function($id) {
