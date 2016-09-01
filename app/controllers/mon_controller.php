@@ -126,7 +126,7 @@
 				$pokedex->save();
 		
 
-			Redirect::to('/mon/' . $mon->id, array('message' => 'Added!')); 
+			Redirect::to('/mon/' . $mon->id . '/' . $trainer_id, array('message' => 'Added!')); 
 
 			} else {
 	

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% if user_logged_in%}
  <h1>Add a new Pokémon to your Pokédex!</h1>
 
  <h5>The Pokémon in your Pokédex will also appear in the public Pokédex for all trainers to see.</h5>
@@ -343,4 +344,5 @@
     	 <button type="submit" class="btn btn-primary">Add</button>
     </div>
   </form>
+{% endif %}
 {% endblock %}

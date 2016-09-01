@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
+{% if user_logged_in %}
+{% if user_logged_in.id == trainer.id %}
   <h1>Edit Pokédex entry for {{mon.name}}:</h1>
 
 {% if errors %}
@@ -346,4 +348,6 @@
       <button type="submit" class="btn btn-primary">Save dat mon</button>
     </div>
   </form>
+{% endif %}
+{% endif %}
 {% endblock %}

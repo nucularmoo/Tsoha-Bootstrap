@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% if user_logged_in %}
 
 	{% if trainer.id == user_logged_in.id %}
 
@@ -36,5 +37,5 @@
 	</ul>
 
 	{% endif %}
-
+{% endif %}
 {% endblock %}
