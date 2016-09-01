@@ -35,7 +35,4 @@ Koska web-sovelluksessa toimii tästä eteenpäin uusien käyttäjätilien luomi
 
 Käyttäjätilien tietojen muokkaus/poisto toimii ihan aikuisten oikeasti tällähetkellä niin jos koekäyttäjätileissä ilmenee jotain ongelmia niin on mahdollista että niiden tietoja on vahingossa muokattu tai että ne on poistettu, jos mikään koekäyttäjätileistä ei toimi, on uuden koekäyttäjätilin tekeminen suositeltavaa.
 
-####TO DO:
-
-* Trainerkohtaiset Pokédexit ja kaikki niihin liittyvä toiminnallisuus puuttuu vielä.
 
