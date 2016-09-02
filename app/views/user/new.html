@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% if user_logged_in == false %}
 
 	<h1>You are welcome to sign up here, trainer!</h1>
 
@@ -46,5 +47,5 @@
 		</div>
 	</form>
 
-
+{% endif %}
 {% endblock %}			
