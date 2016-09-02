@@ -142,9 +142,9 @@ Kaikki mon_controller.php:ta käyttävät sivut käyttävät ilmeisesti myös mo
 
 Sivuilla on navigaatiopalkki.
 
-###Asennustiedot
+##Asennustiedot
 
-###Testaus, tunnetut bugit
+##Testaus, tunnetut bugit
 
 Tietokantasovelluksen kyselyitä ja niiden tuottaman tiedon oikeellisuutta on testattu ensiksi psql-komentorivillä ja jälkeenpäin sovelluksen web-käyttöliittymää käyttäen.
 
@@ -154,7 +154,7 @@ Päämääränä on ollut saavuttaa sovelluksen valmiusaste jossa kaikki sovellu
 
 Tähän mennessä löydetyt bugit on korjattu, joten tunnettuja bugeja ei julkaisuhetkellä ole.
 
-###Jatkokehitysideat
+##Jatkokehitysideat
 
 Tietokantasovellus soveltuu tarkoituksenmukaiseen käyttöönsä, mutta sovelluksessa on monia seikkoja joiden jatkokehitys tekisi sovelluksesta soveltuvamman kohtaamaan myös tulevaisuudessa mahdolliset myöhempien Pokémon-sukupolvien lisäykset peliin Pokémon GO. Muutamia järkeväntuntuisia jatkokehitysideoita seuraavasti:
 
