@@ -155,6 +155,8 @@
 			$basemons = Basemon::all();
 			$params = $_POST;
 
+			$trainer_id = $params['trainer_id'];
+
 			$basemon_id = $params['basemon_id'];
 			$overall_appraisal = $params['overall_appraisal'];
 			$stats_appraisal = $params['stats_appraisal'];
@@ -178,7 +180,7 @@
 
 				$mon->update();
 
-				Redirect::to('/mon/' . $mon->id, array('message' => 'Edit successful!'));
+				Redirect::to('/mon/' . $mon->id . '/' . $trainer_id, array('message' => 'Edit successful!'));
 			}
 
 		}

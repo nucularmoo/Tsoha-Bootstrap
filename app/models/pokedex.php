@@ -19,7 +19,7 @@
 		 * Metodi save tallentaa liitoksen tietyn Trainerin ja tietyn Pokemonin välille
 		 */
 
-		public function save() 
+		public function save() { 
 
 			$query = DB::connection()->prepare('INSERT INTO POKEDEX (trainer_id, pokemon_id) VALUES (:trainer_id, :pokemon_id)');
 

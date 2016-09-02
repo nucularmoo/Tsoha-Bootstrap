@@ -345,7 +345,8 @@
 
 
     <div class="form-group">
-      <button type="submit" class="btn btn-primary">Save dat mon</button>
+	<input type="hidden" name="trainer_id" value="{{user_logged_in.id}}">
+	<button type="submit" class="btn btn-primary">Save dat mon</button>
     </div>
   </form>
 {% endif %}
