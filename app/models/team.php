@@ -1,5 +1,9 @@
 <?php
 
+	/**
+	 * Luokka Team on vastuussa team-tietokohteen tietojen tietokantakyselyistä
+	 */
+
 	class Team extends BaseModel {
 
 		public $id, $name;

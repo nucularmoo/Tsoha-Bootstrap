@@ -1,8 +1,8 @@
 <?php
 
 	/**
-	 * Luokka Supermon kuvaa liitoskyselyillä tuotettua yhdistettä tietokohteista base_pokemon ja pokemon sekä näiden tietojen välittämisestä edelleen
-	 * asianomaisille kontrollereille
+	 * Luokka Supermon kuvaa liitoskyselyillä tuotettua yhdistettä tietokohteista base_pokemon ja pokemon ja toimii
+	 * välikappaleena näistä yhdisteistä kiinnostuneiden kontrollerien ja tietokannan välillä
 	 */
 
 	class Supermon extends BaseModel {
@@ -15,8 +15,10 @@
 		}
 
 		/**
-		 * Metodi all tekee tietokantaan INNER JOIN-kyselyn yhdistäen kaikki Pokemon-tietokohteet oikeisiin base_pokemon tietokohteisiin ja palauttaen listan
-		 * kaikista Pokemon-tietokohteista näiden asianmukaisilla base_pokemon tietokohteiden tiedoilla järjestettynä base_pokemon tietokohteen dexnumeron mukaan
+		 * Metodi all tekee tietokantaan INNER JOIN-kyselyn yhdistäen kaikki Pokemon-tietokohteiden tietosisällöt
+		 * niihin liitettyihin base_pokemon-tietokohteiden tietosisältöihin ja palauttaen listan kaikista 
+		 * Pokemon-tietokohteista näiden asianmukaisilla base_pokemon-tietokohteista liitetyillä tiedoilla 
+		 * järjestettynä base_pokemon tietokohteen dexnumber-tietueen mukaisesti
 		 */
 
 		public static function all() {
@@ -45,6 +47,13 @@
 			
 		}
 
+		/**
+		 * Metodi all_by_trainerid tekee saman kuin metodi all, mutta rajaa palautettavan listan tietosisällön pokedex-liitostaulun
+		 * trainer_id:tä käyttäen, eli palauttaa tietylle trainerille kuuluvat Pokemon-tietokohteiden tietosisällöt näiden
+		 * asianmukaisilla base_pokemon-tietokohteista liitetyillä tiedoilla järjestettynä base_pokemon-tietokohteen dexnumber-tietueen
+		 * mukaisesti
+		 */
+
 		public static function all_by_trainerid($trainer_id) {
 
 			$query = DB::connection()->prepare('SELECT * FROM POKEDEX INNER JOIN POKEMON ON POKEDEX.POKEMON_ID = POKEMON.ID JOIN BASE_POKEMON ON BASE_POKEMON.DEXNUMBER = POKEMON.BASEMON_ID WHERE POKEDEX.TRAINER_ID = :trainer_id ORDER BY POKEMON.BASEMON_ID');
@@ -71,6 +80,12 @@
                         return $supermons;
 
                 }
+
+		/**
+		 * Metodi find_by_trainerid hakee Pokedex-taulusta parametrina annetun trainer_id:hen liitetyn parametrina annetun pokemonin id:n ja palauttaa
+		 * liitoskyselyllä tuotetun yhdisteen Pokemonin tunnisteella haetun Pokemon-tietokohteen tietosisällöstä sekä siihen liitetyn base_pokemon-tietokohteen
+		 * tietosisällöstä tai null jos tietokohteen tietosisältöä ei tietokannasta löydy
+		 */
 
 		public static function find_by_trainerid($id, $trainer_id) {
 
@@ -100,10 +115,9 @@
                 }
 
 
-
 		/**
-		 * Metodi find hakee ja palauttaa sille parametrina annetun Pokemonin sekä siihen liitetyn base_pokemonin tiedot ja palauttaa ne Supermon-oliona
-		 * molempien tietokohteiden tiedoilla varustettuna tai null jos tietokohdetta ei tietokannasta löydy
+		 * Metodi find hakee ja palauttaa sille parametrina annetun Pokemon-tietokohteen tunnisteen omaavan Pokemon-tietokohteen tietosisällön sekä 
+		 * siihen liitetyn base_pokemon-tietokohteen tietosisällön yhdisteen tai null jos tietokohteen tietosisältöä ei tietokannasta löydy
 		 */
 
 		public static function find($id) {

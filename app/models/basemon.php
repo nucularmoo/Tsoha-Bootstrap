@@ -1,8 +1,7 @@
 <?php
 
 	/**
-	 * Luokka Basemon on vastuussa base_pokemon-tietokohteen tietojen tietokantakyselyistä sekä 
-	 * näiden tietojen välittämisesttä edelleen asianomaisille kontrollereille
+	 * Luokka Basemon on vastuussa base_pokemon-tietokohteen tietojen tietokantakyselyistä
 	 */
 
 	class Basemon extends BaseModel {

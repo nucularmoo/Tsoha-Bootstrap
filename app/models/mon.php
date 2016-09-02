@@ -1,6 +1,7 @@
 <?php
 	/**
-	 * Luokka Mon tekee tietokantakyselyt ja hallinnoi tiedon välittämistä asianomaisten kontrollerien sekä tietokannan Pokemon-tietokohteiden välillä
+	 * Luokka Mon toimii välikappaleena tietokannan Pokemon-tietokohteiden sekä niistä kiinnostuneiden
+	 * kontrollereiden välillä välittäen tietokannasta tietoa kontrollereille sekä kontrollereista tietokantaan
 	 */
 
 	class Mon extends BaseModel {
@@ -15,7 +16,7 @@
 		}
 	
 		/**
-		 * Metodi all hakee kaikki Pokemon-tietokohteet tietokannasta sekä välittää niiden tiedot edelleen asianomaisille kontrollereille
+		 * Metodi all hakee kaikki Pokemon-tietokohteiden tietosisällöt tietokannasta
 		 */
 
 		public static function all(){
@@ -44,9 +45,8 @@
 		}
 
 		/**
-		 * Metodi find ottaa vastaan Pokemon-tietokohteen tunnisteen parametrina sekä hakee tietokannasta 
-		 * kyseisellä tunnisteella varustetun Pokemon-tietokohteen tiedot ja välittää ne edelleen asianomaiselle
-		 * kontrollerille
+		 * Metodi find hakee sille parametrina annetun tunnisteen perusteella tietokannasta tunnistetta
+		 * vastaavan Pokemon-tietokohteen tietosisällön
 		 */
 	
 		public static function find($id) {
@@ -74,8 +74,7 @@
 		}
 
 		/**
-		 * Metodi save ottaa vastaan uuden Pokemon-tietokkohteen tiedot asianomaisela kontrollerilta välittäen ne edelleen tietokantaan tallentaen
-		 * ne uuteen Pokemon-tietokohteeseen
+		 * Metodi save tallentaa tietokantaan uuden Pokemon-tietokohteen tietosisällön
 		 */
 	
 		public function save() {
@@ -90,8 +89,7 @@
 		}
 
 		/**
-		 * Metodi update päivittää asianomaisen Pokemon-tietokohteen tiedot tietokannassa asianomaisen kontrollerin sille
-		 * antamien tietojen mukaisesti
+		 * Metodi update päivittää tietokannassa Pokemon-tietokohteen tietosisällön
 		 */
 	
 		public function update() {
@@ -103,7 +101,7 @@
 		}
 
 		/**
-		 * Metodi destroy poistaa asianomaisen Pokemon-tietokohteen tiedot tietokannasta asianomaisen kontrollerin käskyn vastaan ottaen
+		 * Metodi destroy poistaa tietokannasta Pokemon-tietokohteen tietosisällön
 		 */
 	
 		public function destroy() {
@@ -114,77 +112,11 @@
 	
 		}		 
 
-		/**
-		 * Metodi validate_o_appraisal varmistaa pokemon-tietokohteen overall_appraisal tietueeseen
-		 * lisättävissä tai muutettavissa olevan tiedon oikeellisuudesta
-		 */
-	
-		public function validate_o_appraisal() {
-	
-			$errors = array();
-	
-			if ($this->overall_appraisal == '') {
-				$errors[] = 'The overall appraisal value cannot be empty.';
-	
-				return $errors;
-	
-			}
-	
-			if(!is_numeric($this->overall_appraisal)) {
-				$errors[] = 'The overall appraisal value must be a number.';
-	
-				return $errors;
-	
-			}
-	
-			if(intval($this->overall_appraisal < 1) || intval($this->overall_appraisal > 4)) {
-	
-				$errors[] = 'Please consult your Team Leader for the appropriate appraisal and convert as follows: 1 = 0%-50%, 2 = 51%-66%, 3 = 67%-79%, 4 = 80%-100%.';
-	
-				return $errors;
-	
-			} 	
-	
-			return $errors;
-		}
-	
-		/**
-		 * Metodi validate_s_appraisal varmistaa Pokemon-tietokohteen stats_appraisal-tietueeseen
-		 * lisättävän tai muutettavan tiedon oikeellisuuden ennen lisäysten tai muutosten sallimista
-		 */
-	 
-		 public function validate_s_appraisal() {
-	
-	       	         $errors = array();
-		
-       		         if ($this->stats_appraisal == '') {
-       		                 $errors[] = 'The stats appraisal value cannot be empty.';
-		
-       		                 return $errors;
-		
-       		         }
-		
-       		         if(!is_numeric($this->stats_appraisal)) {
-       		                 $errors[] = 'The stats appraisal value must be a number.';
-		
-       		                 return $errors;
-		
-       		         }
-		
-       		         if(intval($this->stats_appraisal < 1) || intval($this->stats_appraisal > 4)) {
-		
-       		                 $errors[] = 'Please consult your Team Leader for the approrpiate appraisal and convert as follows: 1 = max bonus IV 0-7, 2 = max bonus IV 8-12, 3 = max bonus IV 13-14, 4 = max bonus IV 15';
-		
-	       	                 return $errors;
-		
-       		         }
-		
-       			         return $errors;
-		       	 }
 
 		/**
-		 * Metodi validate_location varmistaa ennen Pokemon-tietokohteen caught_location-tietueen
-		 * tietojen muuttamista tai lisäämistä niiden oikeellisuudesta
+		 * Metodi validate_location validoi tietokantaan Pokemon-tietokohteen caught_location-tietueeseen
+		 * lisättävissä tai muutettavissa olevan caught_location-tietueen tietosisällön ennen sen
+		 * lisäämistä tai muuttamista
 		 */
 		
 		public function validate_location() {
@@ -196,13 +128,19 @@
 				$errors[] = 'Please enter a location';
 		
 			}
+
+			if(strlen($this->caught_location) > 400) {
+
+				$errors[] = 'Description of caught location cannot exceed 400 characters';
+
+			}
 	
 			return $errors;
 		}
 
 		/**
-		 * Metodi validate_cp varmistaa ennen Pokemon-tietokohteen cp-tietueeseen tiedon
-		 * lisäämistä tai muokkaamista tiedon oikeellisuudesta ennenkuin tietoa lisätään tai muokataan
+		 * Metodi validate_cp validoi tietokantaan Pokemon-tietokohteen cp-tietueeseen lisättävissä tai
+		 * muutettavissa olevan cp-tietueen tietosisällön ennen sen lisäämistä tai muuttamista
 		 */
 	
 		public function validate_cp() {
