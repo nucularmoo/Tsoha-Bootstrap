@@ -128,10 +128,6 @@ Kirjautuneen käyttäjän lisätessä Pokémon tietokantaan valitaan istunnon pe
 Kirjautuneen käyttäjän katsellessa tai muokatessa käyttäjätilinsä tietoja istuntoa käytetään varmistamaan että kirjautunut käyttäjä voi katsella ja muokata vain omia käyttäjätilinsä tietoja.
 Kirjautuneen käyttäjän katsellessa tarkemmin Pokémonin tietoja tai oman Pokédexinsä listausta käytetään istuntoa salliakseen käyttäjän nähdä Pokémonien lisää, muokkaa sekä poista-painikkeet.
 
-###Asetukset
-
-Tähän pitää vielä lisätä jotain.
-
 ##Käyttöliittymä ja järjestelmän komponentit
 
 ![Kayttoliittymakaavio](kayttoliittymakaavio.png)
@@ -143,6 +139,18 @@ Kaikki mon_controller.php:ta käyttävät sivut käyttävät ilmeisesti myös mo
 Sivuilla on navigaatiopalkki.
 
 ##Asennustiedot
+
+Asenna sovennus kopioimalla sen tiedostot palvelimen nettiin näkyvään hakemistoon.
+Aseta sen jälkeen tietokannan yhteystiedot oikeaksi tiedostoon libs/config.php.
+Voit kopioida asetustiedoston mallin tiedostosta libs/config.php.dist.
+
+Kansiossa config sijaitsevaan tiedostoon environment.sh tulee kirjoittaa asianmukainen käyttäjänimi
+sekä projektin kansion nimi asianmukaisiin kohtiin.
+
+Tietokannassa on ajettava lauseet create_tables.sql sekä add_test_data.sql sillä
+sovellus tarvitsee oikein toimiakseen base_pokemon- ja team-tietokohteiden tietosisällön lisäystä tietokantaan
+ennen sovelluksen käytön aloitusta.
+
 
 ##Testaus, tunnetut bugit
 
