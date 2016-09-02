@@ -183,13 +183,13 @@
 
 			}
 
-			if(strlen($this->name) < 4) {
+				if(strlen($this->name) < 4) {
 
-				$errors[] = 'Field "name" must be at least four characters.';
+					$errors[] = 'Field "name" must be at least four characters.';
 
-			} 
+				} 
 
-			if(strlen($this-name) > 50) {
+				if(strlen($this->name) > 50) {
 
 				$errors[] = 'Field "name" cannot exceed fifty characters.';
 			
@@ -246,7 +246,7 @@
 
 			if(strlen($this->password) > 50) {
 
-				$errors[] = 'Field "password" cannot exceed fifty characters.':
+				$errors[] = 'Field "password" cannot exceed fifty characters.';
 
 			}
 

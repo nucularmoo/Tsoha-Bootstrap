@@ -1,15 +1,15 @@
 <?php
 	
 	/**
-	 * Luokka MonController vastaa kirjautuneen käyttäjän näkymien luomisesta sekä välittää tallennettavat, muutettavat tai poistettavat tiedot
-	 * Pokemon-tietokohteisiin liittyen luokalle mon.php.
+	 * Luokka MonController vastaa kirjautuneen käyttäjän näkymien luomisesta sekä välittää tallennettavat,
+	 * muutettavat tai poistettavat tiedot Pokemon-tietokohteisiin liittyen luokalle mon.php.
 	 */	
 
 	class MonController extends BaseController {
 
 
 		/**
-		 * metodi index hakee kaikki kirjautuneen käyttäjän pokemon-tietokohteet ja luo niistä käyttäjäkohtaisen
+		 * Metodi index hakee kaikki kirjautuneen käyttäjän pokemon-tietokohteet ja luo niistä käyttäjäkohtaisen
 		 * pokedex-näkymän
 		 */
 
