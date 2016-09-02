@@ -80,7 +80,8 @@
                 }
 		
 		/**
-		 * Metodi create hakee kaikki base_pokemon tietokohteet sekä välittää ne lomakesivulle jolla uusi Pokémon-entry lisätään tietokantaan
+		 * Metodi create hakee kaikki base_pokemon tietokohteet sekä välittää ne lomakesivulle 
+		 *jolla uusi Pokémon-entry lisätään tietokantaan
 		 */
 
 		public static function create() {

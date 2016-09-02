@@ -1,8 +1,8 @@
 <?php
 
 	/**
-	 * Luokka Basemon on vastuussa base_pokemon-tietokohteen tietojen tietokantakyselyistä sekä näiden tietojen välittämisesttä
-	 * edelleen asianomaisille kontrollereille
+	 * Luokka Basemon on vastuussa base_pokemon-tietokohteen tietojen tietokantakyselyistä sekä 
+	 * näiden tietojen välittämisesttä edelleen asianomaisille kontrollereille
 	 */
 
 	class Basemon extends BaseModel {
@@ -15,8 +15,7 @@
 		}
 
 		/**
-		 * Metodi all on vastuussa kaikkien base_pokemonien hakemisesta tietokannassa aakkosjärjestyksessä sekä näiden tietojen edelleen välittäminen
-		 * asianomaisille kontrollereille
+		 * Metodi all on vastuussa kaikkien base_pokemonien hakemisesta tietokannassa aakkosjärjestyksessä 
 		 */
 
 
@@ -40,8 +39,8 @@
 		}
 
 		/**
-		 * Metodi find_by_id ottaa parametrina vastaan base_pokemonin tunnisteen ja löytäessään tämän tietokannasta palauttaa sen tiedot asianomaiselle
-		 * kontrollerille tai null, jos tietokohdetta ei löydy
+		 * Metodi find_by_id ottaa parametrina vastaan base_pokemonin tunnisteen ja löytäessään 
+		 * tämän tietokannasta palauttaa sen tiedosisällön tai null, jos tietosisältöä ei löydy
 		 */
 
 		public static function find_by_id($dexnumber) {
@@ -67,8 +66,8 @@
 		}
 
 		/**
-		 * Metodi find_by_name ottaa parametrina vastaan base_pokemonin nimen ja löytäessään tämän tietokannasta palauttaa sen tiedot asianomaiselle
-		 * kontrollerille tai null, jos tietokohdetta ei löydy
+		 * Metodi find_by_name ottaa parametrina vastaan base_pokemonin nimen ja löytäessään 
+		 * tämän tietokannasta palauttaa sen tietosisällön tai null, jos tietosisältöä ei löydy
 		 */
 
 		public static function find_by_name($name) {

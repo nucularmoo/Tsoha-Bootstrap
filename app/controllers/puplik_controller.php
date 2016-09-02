@@ -1,4 +1,8 @@
 <?php
+	
+	/**
+	 * Luokka PublicController vastaa kirjautumattoman käyttäjän näkymien luomisesta
+	 */
 
 	class PublicController extends BaseController {
 

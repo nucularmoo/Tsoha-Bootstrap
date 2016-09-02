@@ -47,8 +47,9 @@
  		}
 
 		/**
-		 * Metodi handle_login on vastuussa sisäänkirjautumissivun lomakkeen tietojen käsittelystä ja niiden oikeellisuuden varmistamisesta ja näin
-		 * lopullisesti vastuussa käyttäjän sisäänkirjautumisessa sekä session aloittamisessa
+		 * Metodi handle_login on vastuussa sisäänkirjautumissivun lomakkeen tietojen käsittelystä ja niiden 
+		 * oikeellisuuden varmistamisesta ja näin lopullisesti vastuussa käyttäjän sisäänkirjautumisessa 
+		 * sekä session aloittamisessa
 		 */
 
 		public static function handle_login(){
@@ -66,7 +67,8 @@
  		 }
 
 		/**
-		 * Metodi logout on vastuussa uloskirjautumisen toteuttamisessa sekä uloskirjautumisen yhteydessä uloskirjautuvan käyttäjän session päättämisessä
+		 * Metodi logout on vastuussa uloskirjautumisen toteuttamisessa sekä uloskirjautumisen yhteydessä 
+		 * uloskirjautuvan käyttäjän session päättämisessä
 		 */
 
 		public static function logout(){
@@ -86,9 +88,9 @@
 		}
 
 		/**
-		 * Metodi store on vastuussa rekisteröityvän käyttäjän Trainer-tietokohteen tietosisällön tallennuksen validoinnin varmistamisesta
-		 * sekä tietokohteen tietosisällön välityksestä tiedot tallentavaan user.php-luokkaan ja lopuksi käyttäjän uudelleenohjaamisesta
-		 * asianmukaiselle sivulle
+		 * Metodi store on vastuussa rekisteröityvän käyttäjän Trainer-tietokohteen tietosisällön tallennuksen 
+		 * validoinnin varmistamisesta sekä tietokohteen tietosisällön välityksestä tiedot tallentavaan 
+		 * user.php-luokkaan ja lopuksi käyttäjän uudelleenohjaamisesta asianmukaiselle sivulle
 		 */
 
 		public static function store() {
