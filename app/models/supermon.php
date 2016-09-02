@@ -48,10 +48,10 @@
 		}
 
 		/**
-		 * Metodi all_by_trainerid tekee saman kuin metodi all, mutta rajaa palautettavan listan tietosisällön pokedex-liitostaulun
-		 * trainer_id:tä käyttäen, eli palauttaa tietylle trainerille kuuluvat Pokemon-tietokohteiden tietosisällöt näiden
-		 * asianmukaisilla base_pokemon-tietokohteista liitetyillä tiedoilla järjestettynä base_pokemon-tietokohteen dexnumber-tietueen
-		 * mukaisesti
+		 * Metodi all_by_trainerid tekee saman kuin metodi all, mutta rajaa palautettavan listan tietosisällön 
+		 * pokedex-liitostaulun trainer_id:tä käyttäen, eli palauttaa tietylle trainerille kuuluvat 
+		 * Pokemon-tietokohteiden tietosisällöt näiden asianmukaisilla base_pokemon-tietokohteista liitetyillä 
+		 * tiedoilla järjestettynä base_pokemon-tietokohteen dexnumber-tietueen mukaisesti
 		 */
 
 		public static function all_by_trainerid($trainer_id) {
@@ -82,9 +82,10 @@
                 }
 
 		/**
-		 * Metodi find_by_trainerid hakee Pokedex-taulusta parametrina annetun trainer_id:hen liitetyn parametrina annetun pokemonin id:n ja palauttaa
-		 * liitoskyselyllä tuotetun yhdisteen Pokemonin tunnisteella haetun Pokemon-tietokohteen tietosisällöstä sekä siihen liitetyn base_pokemon-tietokohteen
-		 * tietosisällöstä tai null jos tietokohteen tietosisältöä ei tietokannasta löydy
+		 * Metodi find_by_trainerid hakee Pokedex-taulusta parametrina annetun trainer_id:hen liitetyn parametrina 
+		 * annetun pokemonin id:n ja palauttaa liitoskyselyllä tuotetun yhdisteen Pokemonin tunnisteella haetun 
+		 * Pokemon-tietokohteen tietosisällöstä sekä siihen liitetyn base_pokemon-tietokohteen tietosisällöstä tai 
+		 * null jos tietokohteen tietosisältöä ei tietokannasta löydy
 		 */
 
 		public static function find_by_trainerid($id, $trainer_id) {
@@ -116,8 +117,9 @@
 
 
 		/**
-		 * Metodi find hakee ja palauttaa sille parametrina annetun Pokemon-tietokohteen tunnisteen omaavan Pokemon-tietokohteen tietosisällön sekä 
-		 * siihen liitetyn base_pokemon-tietokohteen tietosisällön yhdisteen tai null jos tietokohteen tietosisältöä ei tietokannasta löydy
+		 * Metodi find hakee ja palauttaa sille parametrina annetun Pokemon-tietokohteen tunnisteen omaavan 
+		 * Pokemon-tietokohteen tietosisällön sekä siihen liitetyn base_pokemon-tietokohteen tietosisällön 
+		 * yhdisteen tai null jos tietokohteen tietosisältöä ei tietokannasta löydy
 		 */
 
 		public static function find($id) {

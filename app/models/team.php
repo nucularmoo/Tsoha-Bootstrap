@@ -14,6 +14,10 @@
 
 		}
 
+		/**
+		 * Metodi all hakee kaikki Team-tietokohteen tietosisällöt ja palauttaa ne
+		 */
+
 		public static function all() {
 
 			$query = DB::connection()->prepare('SELECT * FROM TEAM');

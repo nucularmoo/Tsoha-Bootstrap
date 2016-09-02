@@ -12,7 +12,7 @@
 		
 		public function __construct($attributes) {
 			parent::__construct($attributes);
-			$this->validators = array('validate_o_appraisal', 'validate_s_appraisal', 'validate_location', 'validate_cp');
+			$this->validators = array('validate_location', 'validate_cp');
 		}
 	
 		/**
