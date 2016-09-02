@@ -20,6 +20,11 @@
 			View::make('mon/index.html', array('mons' => $mons));
 		}
 
+		/**
+		 * Metodi dexindex ottaa parametrina Trainer-tietokohteen tunnisteen ja hakee kaikki Trainerin tunnisteeseen
+		 * liitostaulussa liitetyt Pokemonit, jonka jälkeen se luo käyttäjälle asianmukaisen näkymän.
+		 */
+
 		public static function dexindex($trainer_id) {
 
 			$mons = Supermon::all_by_trainerid($trainer_id);
@@ -28,8 +33,9 @@
 		}
 
 		/**
-		 * metodi show hakee sille annetun parametrin perusteella pokemon- ja base_pokemon-tietokohteen yhdistetyn ilmentymän 
-		 * ja luo sen tietoja käyttäen yksittäisen näkymän näiden tietokohteiden liitokselle
+		 * Metodi show ottaa parametrina Pokemon-tietokohteen tunnisteen sekä Trainer-tietokohteen tunnisteen,
+		 * varmentaa että Pokemon kuuluu (on liitostaulussa Pokedex liitetty) kyseiselle Trainerille, jonka
+		 * jälkeen se luo käyttäjälle asianmukaiselle näkymän
 		 */
 
 		public static function show($id, $trainer_id) {
@@ -50,8 +56,9 @@
 		}
 
 		/**
-		 * metodi edit hakee kaikki base_pokemon-tietokohteet sekä sille annetun parametrin perusteella pokemon- ja base_pokemon-tietokohteen
-		 * yhdistetyn ilmentymän sekä luo pokemon-tietokohteen muokkausnäkymän näiden tietoja käyttäen
+		 * Metodi edit ottaa parametrina Pokemon-tietokohteen tunnisteen sekä Trainer-tietokohteen tunnisteen,
+		 * varmentaa että Pokemon kuuluu (on liitostaulussa Pokedex liitetty) kyseiselle Trainerille, jonka
+		 * jälkeen se luo käyttäjälle asianmukaisen näkymän
 		 */
 
 		   public static function edit($id, $trainer_id) {
@@ -73,7 +80,7 @@
                 }
 		
 		/**
-		 * metodi create hakee kaikki base_pokemon tietokohteet sekä välittää ne lomakesivulle jolla uusi Pokémon-entry lisätään tietokantaan
+		 * Metodi create hakee kaikki base_pokemon tietokohteet sekä välittää ne lomakesivulle jolla uusi Pokémon-entry lisätään tietokantaan
 		 */
 
 		public static function create() {
@@ -84,8 +91,9 @@
                 }
 
 		/**
-		 * metodi store on vastuussa uuden pokemon-tietokohteen tallenukseen liittyen tiedon oikeellisuuden varmoistamisesta sekä
-		 * tietokohteen tietojen välityksestä tiedot tallenvataan mon.php-luokkaan, ja onnistuneen lisäyksen jälkeisen sivun lataamisesta
+		 * Metodi store on vastuussa uuden pokemon-tietokohteen tietosisällön tallennuksen validoinnin varmistamisesta
+		 * sekä tietokohteen tietosisällön välityksestä tiedot tallenvataan mon.php-luokkaan sekä käyttäjän
+		 * uudelleenohjaamisesta asianmukaiselle sivulle
 		 */
 
 
@@ -137,8 +145,8 @@
 		}
 
 		/**
-		 * metodi update on vastuussa jo olemassaolevan pokemon-tietokohteen tietojen päiivityksen oikeellisuuden varmistamisesta sekä
-		 * päivitettyjen tietokohteen tietojen välityksestä tiedot päivittämään mon.php-luokkaan
+		 * Metodi update on vastuussa jo olemassaolevan pokemon-tietokohteen tietosisällön päivityksen validoinnin varmistamisesta
+		 * sekä päivitetyn Pokemon-tietokohteen tietosisällön välityksestä tiedot päivittävään mon.php-luokkaan
 		 */
 
 		public static function update($id) {
@@ -175,8 +183,9 @@
 		}
 
 		/**
-		 * metodi destroy on vastuussa sille parametrina annetun pokemon-tietokohteen tunnisteen tiedon välittämisestä 
-		 * tietokohteen poistavalle mon-php luokalle
+		 * Metodi destroy_mon ottaa vastaan pokemon-tietokohteen tunnisteen sekä trainer-tietokohteen tunnisteen, 
+	   	 * ja on vastuussa kyseisen trainerin tunnisteeseen liitetyn pokedex-tietosisällön poistokäskyn välittämisestä
+		 * edelleen, jonka jälkeen metodi välittää käskyn poistaa kyseisen pokemon-tietokohteen tietosisältö tietokannasta
 		 */
 
 		public static function destroy_mon($id, $trainer_id) {
@@ -192,6 +201,12 @@
 
 			Redirect::to('/pokedex/' . $trainer_id, array('message' => 'Pokémon successfully deleted!'));
 		}
+
+		/**
+		 * Metodi destroy_dex ottaa vastaan pokemon-tietokohteen tunnisteen sekä trainer-tietokohteen tunnisteen,
+		 * ja on vastuussa kyseisen trainerin tunnisteeseen liitetyn pokedex-tietokohteen tietosisällön poistokäskyn
+		 * välittämisestä edelleen
+		 */
 
 		public static function destroy_dex($id, $trainer_id) {
 

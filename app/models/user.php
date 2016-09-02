@@ -16,7 +16,7 @@
 
 		/**
 		 * Metodi find hakee sille parametrina annetun tunnisteen perusteella tietokannasta tunnistetta
-		 * vastaavan trainer-tietokohteen tiedot sekä välittää ne asianomaiselle kontrollerille
+		 * vastaavan trainer-tietokohteen tietosisällön
 		 */
 
 		public static function find($id) {
@@ -42,6 +42,11 @@
 			}
 		}
 
+		/**
+		 * Metodi find_by_name hakee sille parametrina annetun nimen perusteella tietokannasta nimeä
+		 * vastaavan Trainer-tietokohteen tietosisällön
+		 */
+
 		public static function find_by_name($name) {
 
 			$query = DB::connection()->prepare('SELECT * FROM TRAINER WHERE name = :name LIMIT 1');
@@ -64,6 +69,11 @@
 				return null;
 				}
 		}
+
+		/**
+		 * Metodi find_by_name hakee sille parametrina annetun nimen ja tunnisteen perusteella tietokannasta
+		 * nimeä ja tunnistetta vastaavan Trainer-tietokohteen tietosisällön
+		 */
 
 		public static function find_by_name_and_id($id, $name) {
 
@@ -119,8 +129,7 @@
 		}
 
 		/**
-		 * Metodi save tallentaa tietokantaan asianomaiselta kontrollerilta saaman tiedon mukaan
-		 * uuden trainer-tietokohteen tietoineen
+		 * Metodi save tallentaa tietokantaan uuden Trainer-tietokohteen tietosisällön
 		 */
 		
 		public function save() {
@@ -135,7 +144,7 @@
 		}
 
 		/**
-		 * Metodi update päivittää tietokanassa trainer-tietokohteen tiedot sille annettujen tietojen mukaan
+		 * Metodi update päivittää tietokanassa Trainer-tietokohteen tietosisällön
 		 */
 
 		public function update() {
@@ -147,7 +156,7 @@
 		}
 
 		/**
-		 * Metodi destroy poistaa tietokannasta trainer-tietokohteen tiedot sille annettujen tietojen mukaan
+		 * Metodi destroy poistaa tietokannasta Trainer-tietokohteen tietosisällön
 		 */
 
 		public function destroy() {
@@ -159,9 +168,9 @@
 		}
 
 		/**
-		 * Metodi validate_name validoi tietokantaan trainer-tietokohteen name-tietueeseen
-		 * lisättävissä tai muutettavissa olevan nimen oikeellisuuden ennen lisäyksen tai
-		 * muutoksen tapahtumista
+		 * Metodi validate_name validoi tietokantaan Trainer-tietokohteen name-tietueeseen
+		 * lisättävissä tai muutettavissa olevan nimi-tietueen tietosisällön ennen sen
+		 * lisäämistä tai muuttamista
 		 */
 
 		public function validate_name() {
@@ -178,8 +187,13 @@
 
 				$errors[] = 'Field "name" must be at least four characters.';
 
-			}
+			} 
 
+			if(strlen($this-name) > 50) {
+
+				$errors[] = 'Field "name" cannot exceed fifty characters.';
+			
+			}
 			
 
 			if($this->id == '') {			
@@ -210,7 +224,7 @@
 		}
 
 		/**
-		 * Metodi validate_password validoi trainer-tietokohteen password-tietueeseen
+		 * Metodi validate_password validoi Trainer-tietokohteen password-tietueeseen
 		 * lisättävissä tai muutettavissa olevan tiedon oikean muodon ennen sen
 		 * lisäämistä tai muuttamista
 		 */
@@ -227,6 +241,12 @@
 			if(strlen($this->password) < 5) {
 
 				$errors[] = 'Field "password" must be at least five characters.';
+
+			}
+
+			if(strlen($this->password) > 50) {
+
+				$errors[] = 'Field "password" cannot exceed fifty characters.':
 
 			}
 

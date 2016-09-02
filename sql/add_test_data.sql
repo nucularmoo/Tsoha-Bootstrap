@@ -130,7 +130,7 @@ INSERT INTO base_pokemon (dexnumber, name) VALUES ('121', 'Starmie');
 INSERT INTO base_pokemon (dexnumber, name) VALUES ('122', 'Mr. Mime');
 INSERT INTO base_pokemon (dexnumber, name) VALUES ('123', 'Scyther');
 INSERT INTO base_pokemon (dexnumber, name) VALUES ('124', 'Jynx');
-INSERT INTO base_pokemon (dexnumber, name) VALUES ('125', 'Electabuxzz');
+INSERT INTO base_pokemon (dexnumber, name) VALUES ('125', 'Electabuzz');
 INSERT INTO base_pokemon (dexnumber, name) VALUES ('126', 'Magmar');
 INSERT INTO base_pokemon (dexnumber, name) VALUES ('127', 'Pinsir');
 INSERT INTO base_pokemon (dexnumber, name) VALUES ('128', 'Tauros');
