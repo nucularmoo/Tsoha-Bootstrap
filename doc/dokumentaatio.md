@@ -21,7 +21,7 @@ Työ toteutetaan laitoksen users-palvelimella. Web-sovelluksen alustajärjestelm
   Kirjautunut käyttäjä voi muokata lisäämiensä Pokémonien tietoja
 
 ### Pokemonin poistaminen
-  Kirjautunut käyttäjät voi poista lisäämänsä Pokémonin tietokannasta
+  Kirjautunut käyttäjät voi poistaa lisäämänsä Pokémonin tietokannasta
 
 ### Pokemonien selaaminen
   Kaikki käyttäjät voivat selata tietokannan pokemoneja, kirjautuneet käyttäjät voivat myös selata erikseen itse lisäämiään Pokémoneja
@@ -142,4 +142,35 @@ Kaikki mon_controller.php:ta käyttävät sivut käyttävät ilmeisesti myös mo
 
 Sivuilla on navigaatiopalkki.
 
+###Asennustiedot
+
+###Testaus, tunnetut bugit
+
+Tietokantasovelluksen kyselyitä ja niiden tuottaman tiedon oikeellisuutta on testattu ensiksi psql-komentorivillä ja jälkeenpäin sovelluksen web-käyttöliittymää käyttäen.
+
+Tietokantasovelluksen toiminnallisuutta ja sen toiminnallisuuden oikeellisuutta on testattu sovelluksen web-käyttöliittymää käyttäen. Käyttötestauksessa on keskitytty testaamaan että käyttäjät näkevät vain omia käyttäjäkohtaisia asioitaan eivätkä
+esimerkiksi voi osoiteriviä käyttäen muokata tai poistaa toisten käyttäjien tunnuksia tai Pokedex-tietoja.
+Päämääränä on ollut saavuttaa sovelluksen valmiusaste jossa kaikki sovelluksen toiminnallisuudet toimivat virheettä ja tekevät vain sen mikä niiden pitääkin tehdä.
+
+Tähän mennessä löydetyt bugit on korjattu, joten tunnettuja bugeja ei julkaisuhetkellä ole.
+
+###Jatkokehitysideat
+
+Tietokantasovellus soveltuu tarkoituksenmukaiseen käyttöönsä, mutta sovelluksessa on monia seikkoja joiden jatkokehitys tekisi sovelluksesta soveltuvamman kohtaamaan myös tulevaisuudessa mahdolliset myöhempien Pokémon-sukupolvien lisäykset peliin Pokémon GO. Muutamia järkeväntuntuisia jatkokehitysideoita seuraavasti:
+
+####Admin-käyttäjä
+* jolla base_pokemon-tietokohteiden lisäys- ja muokkausnäkymä tulevaisuuden Pokémon-sukupolville
+* jolla Trainer-tietokohteiden listaus- ja muokkaus/poistonäkymä
+* jolla Pokemon-tietokohteiden listaus- ja muokkaus/poistonäkymä
+
+####Tarkennettuja tietokohteiden tietoja
+* base_pokemoniin jokaisen pokemonin base STA/DEF/ATT
+* uusi tietokohde esimerkiksi postinumeroille/kaupungeille
+* base_pokemoniin jokaisen Pokémonin tyyppi, tyyppien weak/super effective
+* base_pokemoniin kyseisen Pokémonin mahdollisesti oppimat liikkeet
+* mahdollisuus tarkentaa onko Pokémon saatu munasta, pyydystetty luonnosta vai evolvannut
+
+####Tilastonäkymiä
+* joukkuekohtainen Pokémonien keräysaktiivisuus
+* hakutoiminto Pokémonien pyydystämisalueille ja erinäisiä listauksia
 
