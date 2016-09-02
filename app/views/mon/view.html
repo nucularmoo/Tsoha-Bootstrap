@@ -16,12 +16,12 @@
 		<p>
 
 			<form method="post" action="{{base_path}}/mon/destroy/{{mon.id}}/{{user_logged_in.id}}" style="display: inline-block;" class="destroy-form" data-confirm="Are you sure you want to delete data from both public and private Pokédex?">
-				<button type="submit" button class="btn btn-danger">Delete from public and private Pokédex</button>
+				<button type="submit" button class="btn btn-danger btn-sm">Delete from public and private Pokédex</button>
 			</form> 
 			<form method="post" action="{{base_path}}/destroydex/{{mon.id}}/{{user_logged_in.id}}" style="display: inline-block;" class="destroy-form" data-confirm="Are you sure you want to delete this Pokédex entry?">
-				<button type="submit" button class="btn btn-warning">Delete from private Pokédex ONLY</button>
+				<button type="submit" button class="btn btn-warning btn-sm">Delete from private Pokédex ONLY</button>
 			</form>
-			<a class="btn btn.default btn-default" href= "{{base_path}}/mon/edit/{{mon.id}}/{{user_logged_in.id}}" class="btn btn-default">Edit</a>
+			<a class="btn btn.default btn-default btn-sm" href= "{{base_path}}/mon/edit/{{mon.id}}/{{user_logged_in.id}}" class="btn btn-default">Edit</a>
 		</p>
 
 

@@ -98,6 +98,11 @@ Appraisal-valikot tarjoavat joukkuekohtaiset dialogi-vaihtoehdot trainerin käyt
 
 Trainerien toivotaan lisäävän mahdollisimman tarkka Pokémonin pyydyspaikka tietokantaan, jotta samanlajisia Pokémoneja metsästävät trainerit voisivat käyttää tietokannan antamia tietoja mahdollisista metsästysapajista hyväkseen.
 
+#### * Koekäyttäjätileinä toimivat:
+
+* Besttrainereu/Bettrainereu123
+* Besttrainerna/Besttrainerna123
+* Amazingasian/gosu123
 
 ## Järjestelmän yleisrakenne
 
