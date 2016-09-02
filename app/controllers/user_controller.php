@@ -1,9 +1,16 @@
 <?php
+
+	/**
+	 * Luokka UserController vastaa kirjautuneen käyttäjän käyttäjään liittyvien näkymien luomisesta ja hallinnoimisesta
+	 * sekä välittää tallennettavat, muutettavat tai poistettavat tiedot Trainer-tietokohteisiin liittyen luokalle user.php
+	 */
+
 	class UserController extends BaseController{
 
 		/**
-		 * metodi show on vastuussa sille parametrina annetun tunnisteen välittäminen tiedot tietokannasta hakevalle user.php luokalle
-		 * sekä näitä tietoja käyttäen trainerin tietokohteen näyttävän sivun tekeminen
+		 * Metodi show hakee parametrina annetun Trainer-tietokohteen tunnisteen perusteella tietokohteen
+		 * tietosisällön sekä kaikki Team-tietokohteen tietosisällöt, jonka jälkeen se luo käyttäjälle
+		 * asianmukaisen näkymän
 		 */		
 	
 		public static function show($id) {
@@ -17,8 +24,8 @@
 		}
 
 		/**
-		 * metodi edit on vastuussa sille parametrina annetun tunnisteen välittäminen tiedot tietokannasta hakevalle user.php luokalle
-		 * sekä näitä tietoja käyttäen trainerin tietokohteen muokkausnäkymän näyttävän sivun tekeminen
+		 * Metodi edit ottaa parametrina Trainer-tietokohteen tunnisteen jonka jälkeen se luo käyttäjälle
+		 * asianmukaisen näkymän Trainer-tietokohteen tietosisällön muokkaamista varten
 		 */
 
 		public static function edit($id) {
@@ -31,7 +38,7 @@
 		}
 
 		/**
-		 * metodi login on vastuussa sisäänkirjautumissivun tekemisestä
+		 * Metodi login luo sisäänkirjautumissivun näkymän
 		 */
 
 		public static function login(){
@@ -40,7 +47,7 @@
  		}
 
 		/**
-		 * metodi handle_login on vastuussa sisäänkirjautumissivun lomakkeen tietojen käsittelystä ja niiden oikeellisuuden varmistamisesta ja näin
+		 * Metodi handle_login on vastuussa sisäänkirjautumissivun lomakkeen tietojen käsittelystä ja niiden oikeellisuuden varmistamisesta ja näin
 		 * lopullisesti vastuussa käyttäjän sisäänkirjautumisessa sekä session aloittamisessa
 		 */
 
@@ -59,7 +66,7 @@
  		 }
 
 		/**
-		 * metodi logout on vastuussa uloskirjautumisen toteuttamisessa sekä uloskirjautumisen yhteydessä uloskirjautuvan käyttäjän session päättämisessä
+		 * Metodi logout on vastuussa uloskirjautumisen toteuttamisessa sekä uloskirjautumisen yhteydessä uloskirjautuvan käyttäjän session päättämisessä
 		 */
 
 		public static function logout(){
@@ -68,7 +75,7 @@
 		}
 
 		/**
-		 * metodi create on vastuussa uuden käyttäjän rekisteröitymistä varten tarvittavan lomakesivun tekemisestä
+		 * Metodi create on vastuussa uuden käyttäjän rekisteröitymistä varten tarvittavan lomakesivun näkymän luomisesta
 		 */
 
 		public static function create() {
@@ -79,8 +86,9 @@
 		}
 
 		/**
-		 * metodi store on vastuussa rekisteröityvän käyttäjän tietojen vastaanottamisessa ja niiden oikeellisuuden tarkistamisessa sekä näiden tietojen
-		 * edelleen välittämisestä trainer-tietokohteen tietokantaan tallentavalle user.php luokalle
+		 * Metodi store on vastuussa rekisteröityvän käyttäjän Trainer-tietokohteen tietosisällön tallennuksen validoinnin varmistamisesta
+		 * sekä tietokohteen tietosisällön välityksestä tiedot tallentavaan user.php-luokkaan ja lopuksi käyttäjän uudelleenohjaamisesta
+		 * asianmukaiselle sivulle
 		 */
 
 		public static function store() {
@@ -118,8 +126,9 @@
 		}
 
 		/**
-		 * metodi update ottaa vastaan parametrina trainer-tietokohteen tunnisteen jonka tietoja halutaan muuttaa, sekä on vastuussa näiden tietojen
-		 * oikeellisuuden tarkistamisesta ja oikeelliseksi varmistamiensa tietojen edelleen välittämisestä trainer-tietokohteen tietoja muuttavalle user.php luokalle
+		 * Metodi update on vastuussa jo olemassaolevan Trainer-tietokohteen tietosisällön päivityksen validoinnin
+		 * varmistamisesta sekä päivitetyn Trainer-tietokohteen tietosisällön välityksestä tiedot päivittävään
+		 * user.php-luokkaan ja lopuksi käyttäjän uudelleenohjaamisesta asianmukaiselle sivulle
 		 */
 
 		public static function update($id) {
@@ -155,8 +164,10 @@
 		}
 
 		/**
-		 * metodi destroy ottaa vastaan parametrina trainer-tietokohteen tunnisteen joka tietokannasta halutaan poistaa sekä välittää tämän tiedon
-		 * edelleen sen tietokannasta poistavalle users.php luokalle
+		 * Metodi destroy_trainer_keep_public_dex ottaa parametrina Trainer-tietokohteen tunnisteen,
+		 * ja on vastuussa kyseisen Trainerin tunnisteeseen liitetyn Pokedex-viitteiden poistokäskyn
+		 * välittämisestä edelleen pokedex.php-luokalle, jonka jälkeen metodi välittää käskyn poistaa kyseisen
+		 * Trainer-tietokohteen tietosisällön tietokannasta luokalle user.php
 		 */
 
 		public static function destroy_trainer_keep_public_dex($id) {
@@ -172,6 +183,14 @@
 			Redirect::to('/', array('message' => 'Account successfully deleted!'));
 
 		}
+
+		/**
+		 * Metodi destroy_trainer_and_pokemons ottaa parametrina Trainer-tietokohteen tunnisteen,
+		 * ja on vastuussa kyseisen Trainerin tunnisteeseen liitetyn Pokedex-viitteiden ja myös 
+		 * näihin viitattavien Pokemon-tietokohteiden tietosisällön poistokäskyn välittämisestä 
+		 * edelleen pokedex.php-luokalle, jonka jälkeen metodi välittää käskyn poistaa kyseisen
+		 * Trainer-tietokohteen tietosisällön tietokannasta luokalle user.php
+		 */
  
 		public static function destroy_trainer_and_pokemons($id) {
 
